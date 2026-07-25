@@ -137,6 +137,19 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .project-link{font-family:'JetBrains Mono';font-size:.72rem;color:var(--cyan);text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;}
 .project-link:hover{color:#fff;}
 
+/* ---- PROJECT STAGE (vertical scroll-driven 3D helix) ---- */
+.stage-wrap{position:relative;}
+.project-stage{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;perspective:1500px;overflow:hidden;}
+.trunk-canvas{position:absolute;top:0;left:50%;transform:translateX(-50%);width:220px;height:100%;pointer-events:none;z-index:1;}
+.stage-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;}
+.stage-inner .project-card{position:absolute;top:50%;left:50%;width:280px;margin:-190px 0 0 -140px;will-change:transform,opacity;transition:border-color .3s,box-shadow .3s;pointer-events:none;}
+.stage-inner .project-card.is-active{pointer-events:auto;}
+.stage-counter{position:absolute;bottom:6vh;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono';font-size:.72rem;letter-spacing:.15em;color:var(--text-dim);display:flex;align-items:center;gap:.8rem;}
+.stage-counter .bar{width:120px;height:2px;background:var(--glass-border);border-radius:2px;overflow:hidden;}
+.stage-counter .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--magenta));transition:width .1s linear;}
+.stage-hint{position:absolute;top:6vh;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono';font-size:.66rem;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;opacity:.8;}
+@media (max-width:700px){.stage-inner .project-card{width:240px;margin:-180px 0 0 -120px;}}
+
 /* ---- EXPERIENCE ---- */
 .exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:3vw;}
 @media (max-width:900px){.exp-grid{grid-template-columns:1fr;}}
@@ -169,6 +182,7 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .contact-info>p{color:var(--text-dim);font-weight:300;line-height:1.8;font-size:.92rem;margin-bottom:1.8rem;}
 .contact-info strong{color:var(--text);}
 .contact-cards{display:flex;flex-direction:column;gap:.8rem;}
+.social-btns{display:flex;gap:.9rem;margin-top:1.2rem;flex-wrap:wrap;}
 .contact-card{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;border:1px solid var(--glass-border);border-radius:14px;background:var(--glass);text-decoration:none;backdrop-filter:blur(8px);transition:border-color .3s,transform .3s;}
 .contact-card:hover{border-color:var(--cyan);transform:translateX(4px);}
 .contact-icon{width:38px;height:38px;border-radius:10px;background:rgba(34,224,245,.1);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
@@ -293,8 +307,16 @@ footer a{color:var(--cyan);text-decoration:none;}
     </div>
     <div class="filter-bar reveal" id="filterBar"></div>
     <p class="filter-count reveal" id="filterCount"></p>
-    <div class="projects-grid reveal" id="projectsGrid"></div>
   </section>
+
+  <div class="stage-wrap" id="stageWrap">
+    <div class="project-stage">
+      <div class="stage-hint">Scroll to rotate ↓</div>
+      <canvas id="trunkCanvas" class="trunk-canvas"></canvas>
+      <div class="stage-inner" id="stageInner"></div>
+      <div class="stage-counter"><span id="stageCounterText">01 / 33</span><span class="bar"><i id="stageBar" style="width:0%"></i></span></div>
+    </div>
+  </div>
 
   <section id="experience">
     <div class="reveal">
@@ -356,8 +378,10 @@ footer a{color:var(--cyan);text-decoration:none;}
         <div class="contact-cards">
           <a href="mailto:akshatkesharwani12345@gmail.com" class="contact-card"><div class="contact-icon">📧</div><div><div class="c-label">Email</div><div class="c-value">akshatkesharwani12345@gmail.com</div></div></a>
           <a href="tel:+917697537954" class="contact-card"><div class="contact-icon">📱</div><div><div class="c-label">Phone</div><div class="c-value">+91 76975 37954</div></div></a>
-          <a href="https://www.linkedin.com/in/akshat-kesharwani-b0452b346" target="_blank" rel="noopener" class="contact-card"><div class="contact-icon">💼</div><div><div class="c-label">LinkedIn</div><div class="c-value">linkedin.com/in/akshat-kesharwani-b0452b346</div></div></a>
-          <a href="https://github.com/akshatkesharwani-info" target="_blank" rel="noopener" class="contact-card"><div class="contact-icon">🐙</div><div><div class="c-label">GitHub</div><div class="c-value">github.com/akshatkesharwani-info</div></div></a>
+        </div>
+        <div class="social-btns">
+          <a href="https://www.linkedin.com/in/akshat-kesharwani-b0452b346" target="_blank" rel="noopener" class="btn btn-ghost">💼 LinkedIn ↗</a>
+          <a href="https://github.com/akshatkesharwani-info" target="_blank" rel="noopener" class="btn btn-ghost">🐙 GitHub ↗</a>
         </div>
       </div>
       <div class="contact-right">
@@ -458,11 +482,21 @@ const projects=[
   { repo:"AdventureWorks-CallCenter-Analytics", title:"AdventureWorks: Call Center Operations", cat:"SQL & BI", desc:"Call center operations analysis — call volume, wait times, and issue resolution trends — queried directly from AdventureWorksDW2019.", tools:["SQL Server","T-SQL","SSMS","Operations Analytics"] },
 ];
 
-const grid=document.getElementById('projectsGrid');
 const filterBar=document.getElementById('filterBar');
 const filterCount=document.getElementById('filterCount');
+const stageWrap=document.getElementById('stageWrap');
+const stageInner=document.getElementById('stageInner');
+const stageCounterText=document.getElementById('stageCounterText');
+const stageBar=document.getElementById('stageBar');
 const categories=["All", ...Array.from(new Set(projects.map(p=>p.cat)))];
 let activeCat="All";
+let cardEls=[];
+let visibleProjects=[];
+
+const SPACING_VH=52;      // vertical distance between projects along the trunk
+const ANGLE_STEP=54;      // rotateY degrees between adjacent projects (spiral feel)
+const RADIUS=340;         // orbit radius from the trunk
+const VISIBLE_RANGE=3.4;  // how many cards away from center stay rendered
 
 function renderFilters(){
   filterBar.innerHTML=categories.map(cat=>{
@@ -470,16 +504,24 @@ function renderFilters(){
     return `<button class="filter-pill${cat===activeCat?' active':''}" data-cat="${cat}">${cat} (${count})</button>`;
   }).join('');
   filterBar.querySelectorAll('.filter-pill').forEach(btn=>{
-    btn.addEventListener('click',()=>{activeCat=btn.dataset.cat; renderFilters(); renderGrid();});
+    btn.addEventListener('click',()=>{
+      activeCat=btn.dataset.cat;
+      renderFilters();
+      buildStage();
+      window.scrollTo({top:stageWrap.offsetTop-10, behavior:'smooth'});
+    });
   });
 }
 
-function renderGrid(){
-  const visible=activeCat==="All"?projects:projects.filter(p=>p.cat===activeCat);
-  filterCount.innerHTML=`Showing <strong>${visible.length}</strong> of <strong>${projects.length}</strong> projects`;
-  grid.innerHTML=visible.map((p,i)=>`
-    <div class="project-card">
-      <div class="project-num">0${i+1 < 10 ? i+1 : i+1}</div>
+function buildStage(){
+  visibleProjects = activeCat==="All" ? projects : projects.filter(p=>p.cat===activeCat);
+  filterCount.innerHTML=`Showing <strong>${visibleProjects.length}</strong> of <strong>${projects.length}</strong> projects`;
+
+  stageWrap.style.height = `${(visibleProjects.length*SPACING_VH)+100}vh`;
+
+  stageInner.innerHTML = visibleProjects.map((p,i)=>`
+    <div class="project-card" data-index="${i}">
+      <div class="project-num">0${(i+1)<10?i+1:i+1}</div>
       <div class="project-type">${p.cat}</div>
       <h3>${p.title}</h3>
       ${p.highlight?`<div class="project-highlight">${p.highlight}</div>`:''}
@@ -488,11 +530,115 @@ function renderGrid(){
       <a href="${GH}${p.repo}" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
     </div>
   `).join('');
+  cardEls = Array.from(stageInner.querySelectorAll('.project-card'));
   bindCursorTargets();
+  updateStage();
 }
+
+function updateStage(){
+  if(!visibleProjects.length) return;
+  const rect=stageWrap.getBoundingClientRect();
+  const scrollable = rect.height - window.innerHeight;
+  const progress = scrollable>0 ? Math.min(Math.max(-rect.top/scrollable,0),1) : 0;
+  const continuousIndex = progress*(visibleProjects.length-1);
+
+  cardEls.forEach((el,i)=>{
+    const delta = i-continuousIndex;
+    const absDelta = Math.abs(delta);
+    if(absDelta>VISIBLE_RANGE){ el.style.display='none'; el.classList.remove('is-active'); return; }
+    el.style.display='block';
+    const angle = delta*ANGLE_STEP;
+    const y = delta*(SPACING_VH*window.innerHeight/100*0.62);
+    const z = -absDelta*90;
+    const scale = Math.max(1-absDelta*0.14, 0.42);
+    const opacity = Math.max(1-absDelta*0.3, 0.08);
+    el.style.transform = `translateY(${y}px) rotateY(${angle}deg) translateZ(${RADIUS+z}px) scale(${scale})`;
+    el.style.opacity = opacity;
+    el.style.zIndex = 100-Math.round(absDelta*10);
+    el.classList.toggle('is-active', absDelta<0.5);
+    const color = ['#22e0f5','#ff2fb0','#34e6a8','#7c3aed'][i%4];
+    el.style.boxShadow = absDelta<0.5 ? `0 25px 70px -20px ${color}` : 'none';
+    el.style.borderColor = absDelta<0.5 ? color : 'var(--glass-border)';
+  });
+
+  const nearest = Math.round(Math.min(Math.max(continuousIndex,0),visibleProjects.length-1));
+  stageCounterText.textContent = `${String(nearest+1).padStart(2,'0')} / ${String(visibleProjects.length).padStart(2,'0')}`;
+  stageBar.style.width = `${progress*100}%`;
+}
+
+let stageTicking=false;
+window.addEventListener('scroll', ()=>{
+  if(!stageTicking){
+    requestAnimationFrame(()=>{ updateStage(); stageTicking=false; });
+    stageTicking=true;
+  }
+});
+window.addEventListener('resize', ()=>{ buildStage(); sizeTrunk(); });
+
 renderFilters();
-renderGrid();
-bindCursorTargets();
+buildStage();
+
+/* ---------- animated flowing energy trunk (canvas) ---------- */
+const trunkCanvas=document.getElementById('trunkCanvas');
+const tctx=trunkCanvas.getContext('2d');
+function sizeTrunk(){
+  const stageEl=document.querySelector('.project-stage');
+  const w=220, h=(stageEl && stageEl.clientHeight) || window.innerHeight;
+  const dpr=Math.min(devicePixelRatio,2);
+  trunkCanvas.width=w*dpr; trunkCanvas.height=h*dpr;
+  trunkCanvas.style.width=w+'px'; trunkCanvas.style.height=h+'px';
+  tctx.setTransform(dpr,0,0,dpr,0,0);
+}
+sizeTrunk();
+
+const strandColors=['#22e0f5','#7c3aed','#ff2fb0','#34e6a8','#22e0f5','#7c3aed'];
+const strands=strandColors.map(c=>({
+  color:c,
+  freq:0.006+Math.random()*0.007,
+  speed:0.5+Math.random()*0.5,
+  amp:22+Math.random()*34,
+  phase:Math.random()*Math.PI*2,
+  drift:0.12+Math.random()*0.2
+}));
+const pulses=strandColors.slice(0,4).map((c)=>({color:c, offset:Math.random(), speed:0.05+Math.random()*0.05}));
+
+function drawTrunk(t){
+  const dpr=Math.min(devicePixelRatio,2);
+  const w=trunkCanvas.width/dpr, h=trunkCanvas.height/dpr;
+  tctx.clearRect(0,0,w,h);
+  const cx=w/2;
+  tctx.globalCompositeOperation='lighter';
+  strands.forEach(s=>{
+    tctx.beginPath();
+    for(let y=0;y<=h;y+=6){
+      const x=cx + Math.sin(y*s.freq + t*s.speed + s.phase)*s.amp + Math.sin(y*0.003+t*s.drift)*14;
+      if(y===0) tctx.moveTo(x,y); else tctx.lineTo(x,y);
+    }
+    tctx.strokeStyle=s.color;
+    tctx.globalAlpha=0.32;
+    tctx.lineWidth=1.3;
+    tctx.shadowColor=s.color;
+    tctx.shadowBlur=15;
+    tctx.stroke();
+  });
+  tctx.shadowBlur=0;
+  pulses.forEach(p=>{
+    const py=((t*p.speed*0.15 + p.offset)%1)*h;
+    const x=cx + Math.sin(py*0.008+t*0.6)*24;
+    const grad=tctx.createRadialGradient(x,py,0,x,py,24);
+    grad.addColorStop(0, p.color);
+    grad.addColorStop(1, 'transparent');
+    tctx.globalAlpha=0.85;
+    tctx.fillStyle=grad;
+    tctx.beginPath();
+    tctx.arc(x,py,24,0,Math.PI*2);
+    tctx.fill();
+  });
+  tctx.globalCompositeOperation='source-over';
+  tctx.globalAlpha=1;
+  requestAnimationFrame((ts)=>drawTrunk(ts/1000));
+}
+requestAnimationFrame((ts)=>drawTrunk(ts/1000));
 
 /* ================= THREE.JS PARTICLE BACKGROUND ================= */
 const bgCanvas=document.getElementById('bg-canvas');
