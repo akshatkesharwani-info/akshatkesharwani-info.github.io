@@ -175,6 +175,43 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .cert-status.active{background:rgba(52,230,168,.15);color:var(--emerald);}
 .cert-status.done{background:rgba(34,224,245,.15);color:var(--cyan);}
 
+/* ---- CERTIFICATES (floating 3D orbit) ---- */
+.cert-orbit-wrap{position:relative;height:min(560px,72vh);display:flex;align-items:center;justify-content:center;}
+.cert-sphere-canvas{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(560px,88vw);height:min(560px,88vw);pointer-events:none;z-index:1;opacity:.92;}
+.cert-viewport{position:relative;z-index:2;width:100%;height:100%;overflow:hidden;cursor:grab;-webkit-user-select:none;user-select:none;touch-action:pan-y;}
+.cert-viewport.dragging{cursor:grabbing;}
+.cert-track{position:absolute;top:0;left:0;height:100%;display:flex;align-items:center;will-change:transform;}
+.cert-slot{position:relative;flex-shrink:0;width:220px;margin:0 18px;perspective:900px;}
+.cert-float{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--glass-border);border-radius:18px;overflow:hidden;backdrop-filter:blur(10px);cursor:pointer;animation:certBob 5.5s ease-in-out infinite;transition:border-color .3s,box-shadow .3s;}
+.cert-float:hover{border-color:rgba(34,224,245,.5);box-shadow:0 20px 50px -18px rgba(34,224,245,.35);}
+.cert-float img{display:block;width:100%;height:150px;object-fit:cover;object-position:top;background:#0d0d14;pointer-events:none;-webkit-user-drag:none;}
+.cert-float-body{padding:.9rem 1.05rem 1.1rem;}
+.cert-float-body h4{font-family:'Space Grotesk';font-weight:500;font-size:.86rem;line-height:1.3;margin-bottom:.3rem;}
+.cert-float-body .issuer{font-family:'JetBrains Mono';font-size:.65rem;letter-spacing:.05em;color:var(--cyan);text-transform:uppercase;margin-bottom:.2rem;}
+.cert-float-body .date{font-size:.7rem;color:var(--text-dim);}
+@keyframes certBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+.cert-hint{position:absolute;bottom:-2.2rem;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono';font-size:.66rem;letter-spacing:.15em;color:var(--text-dim);text-transform:uppercase;opacity:.75;white-space:nowrap;}
+@media (max-width:700px){.cert-slot{width:168px;margin:0 12px;}.cert-float img{height:118px;}}
+
+/* ---- CERT LIGHTBOX ---- */
+.cert-lightbox{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:rgba(3,3,6,.88);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s;padding:6vh 5vw;}
+.cert-lightbox.open{opacity:1;pointer-events:auto;}
+.cert-lightbox-inner{position:relative;max-width:900px;width:100%;max-height:88vh;display:flex;flex-direction:column;align-items:center;}
+.cert-lightbox img{max-width:100%;max-height:72vh;border-radius:12px;border:1px solid var(--glass-border);box-shadow:0 30px 80px -20px rgba(0,0,0,.6);}
+.cert-lightbox-cap{margin-top:1rem;text-align:center;}
+.cert-lightbox-cap h4{font-family:'Space Grotesk';font-size:1rem;font-weight:500;margin-bottom:.25rem;}
+.cert-lightbox-cap span{font-family:'JetBrains Mono';font-size:.72rem;color:var(--text-dim);}
+.cert-lightbox-close{position:absolute;top:-6px;right:-6px;width:40px;height:40px;border-radius:50%;border:1px solid var(--glass-border);background:var(--glass);backdrop-filter:blur(8px);color:var(--text);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .3s;}
+.cert-lightbox-close:hover{border-color:var(--cyan);color:var(--cyan);}
+@media (max-width:700px){.cert-lightbox-close{top:0;right:0;}}
+
+/* ---- FLOATING CONTACT BUTTON ---- */
+.float-contact-btn{position:fixed;right:5vw;bottom:28px;z-index:55;display:flex;align-items:center;gap:.6rem;padding:.85rem 1.3rem;border-radius:100px;background:linear-gradient(120deg,var(--cyan),var(--purple));color:#050508;font-family:'JetBrains Mono';font-size:.75rem;font-weight:600;letter-spacing:.04em;text-decoration:none;box-shadow:0 14px 34px -10px rgba(34,224,245,.5);animation:fcbPulse 2.6s ease-in-out infinite;transition:transform .3s;}
+.float-contact-btn:hover{transform:translateY(-3px);}
+.float-contact-btn .dot2{width:7px;height:7px;border-radius:50%;background:#050508;}
+@keyframes fcbPulse{0%,100%{box-shadow:0 14px 34px -10px rgba(34,224,245,.5);}50%{box-shadow:0 14px 44px -8px rgba(255,47,176,.55);}}
+@media (max-width:640px){.float-contact-btn span.fcb-label{display:none;}.float-contact-btn{padding:.9rem;bottom:20px;right:20px;}}
+
 /* ---- CONTACT ---- */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:start;}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
@@ -195,6 +232,22 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .r-title{font-size:.88rem;font-weight:500;}
 .r-loc{font-size:.72rem;color:var(--text-dim);margin-top:.1rem;}
 .r-badge{font-family:'JetBrains Mono';font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cyan);background:rgba(34,224,245,.12);padding:.28rem .6rem;border-radius:100px;flex-shrink:0;}
+
+/* ---- MOBILE PERFORMANCE MODE ----
+   backdrop-filter blur is one of the most expensive things a mobile GPU can composite,
+   and it's used a lot across this page. On touch/small devices we swap it for a cheap
+   solid translucent background instead, which looks nearly identical but costs almost nothing. */
+@media (max-width:900px), (pointer:coarse){
+  header.scrolled,.badge,.panel,.filter-pill,.project-card,.timeline-item,.cert-card,
+  .about-details,.contact-card,.role-pill,.btn-ghost,.cert-float,.cert-lightbox-close{
+    backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+    background:rgba(14,14,22,.72)!important;
+  }
+  .cert-lightbox{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(3,3,6,.95)!important;}
+  #bloom-canvas{display:none;}
+  .project-card,.stage-inner .project-card{box-shadow:none!important;}
+  .stage-inner .project-card.is-active{box-shadow:0 10px 28px -12px var(--cyan)!important;}
+}
 
 footer{padding:3rem 6vw;text-align:center;color:var(--text-dim);font-family:'JetBrains Mono';font-size:.68rem;letter-spacing:.08em;border-top:1px solid var(--glass-border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;position:relative;z-index:5;}
 footer a{color:var(--cyan);text-decoration:none;}
@@ -218,6 +271,7 @@ footer a{color:var(--cyan);text-decoration:none;}
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
+    <a href="#certificates">Certificates</a>
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
   </nav>
@@ -227,9 +281,25 @@ footer a{color:var(--cyan);text-decoration:none;}
 <div class="hud">
   <a href="#about" data-sec="about" class="active">01 / ABOUT</a>
   <a href="#skills" data-sec="skills">02 / SKILLS</a>
-  <a href="#projects" data-sec="projects">03 / PROJECTS</a>
-  <a href="#experience" data-sec="experience">04 / EXPERIENCE</a>
-  <a href="#contact" data-sec="contact">05 / CONTACT</a>
+  <a href="#certificates" data-sec="certificates">03 / CERTIFICATES</a>
+  <a href="#projects" data-sec="projects">04 / PROJECTS</a>
+  <a href="#experience" data-sec="experience">05 / EXPERIENCE</a>
+  <a href="#contact" data-sec="contact">06 / CONTACT</a>
+</div>
+
+<a href="#contact" class="float-contact-btn" id="floatContactBtn" aria-label="Jump to contact section">
+  <span class="dot2"></span><span class="fcb-label">Let's Talk</span>
+</a>
+
+<div class="cert-lightbox" id="certLightbox">
+  <div class="cert-lightbox-inner">
+    <button class="cert-lightbox-close" id="certLightboxClose" aria-label="Close">✕</button>
+    <img id="certLightboxImg" src="" alt="Certificate"/>
+    <div class="cert-lightbox-cap">
+      <h4 id="certLightboxTitle"></h4>
+      <span id="certLightboxMeta"></span>
+    </div>
+  </div>
 </div>
 
 <main>
@@ -296,6 +366,21 @@ footer a{color:var(--cyan);text-decoration:none;}
       <div class="panel"><div class="skill-icon">📊</div><h4>BI &amp; Visualization</h4><div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Tableau</span><span class="tag">Looker Studio</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div></div>
       <div class="panel"><div class="skill-icon">🔬</div><h4>Data Science Libraries</h4><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">SciPy</span><span class="tag">Statsmodels</span><span class="tag">Prophet</span></div></div>
       <div class="panel"><div class="skill-icon">📈</div><h4>Analytics Competencies</h4><div class="tags"><span class="tag">EDA</span><span class="tag">A/B Testing</span><span class="tag">Feature Engineering</span><span class="tag">Churn Analysis</span><span class="tag">RFM Segmentation</span><span class="tag">Cohort Analysis</span></div></div>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <div class="reveal">
+      <div class="kicker">Verified</div>
+      <h2>Certifications &amp; Job Simulations</h2>
+      <p class="section-sub">Industry job simulations completed with Tata, Commonwealth Bank, Quantium, JPMorgan Chase, Deloitte Australia &amp; Mastercard. Drag the cards, or let them float on their own — tap any card for the full certificate.</p>
+    </div>
+    <div class="cert-orbit-wrap reveal">
+      <canvas id="certSphereCanvas" class="cert-sphere-canvas"></canvas>
+      <div class="cert-viewport" id="certViewport">
+        <div class="cert-track" id="certTrack"></div>
+      </div>
+      <div class="cert-hint">⟷ drag to explore · tap to view</div>
     </div>
   </section>
 
@@ -407,11 +492,18 @@ footer a{color:var(--cyan);text-decoration:none;}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+/* ---------- mobile / low-power detection ----------
+   Used everywhere below to dial back particle counts, canvas resolution,
+   shadow blur, and offscreen compositing — the things that were causing
+   the lag on phones while looking fine on desktop GPUs. */
+const isMobile = window.matchMedia('(max-width:900px)').matches || window.matchMedia('(pointer:coarse)').matches;
+const isLowEnd = isMobile && (navigator.hardwareConcurrency||4)<=4;
+
 /* ---------- custom cursor ---------- */
 const cur=document.getElementById('cursor');
 window.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
 function bindCursorTargets(){
-  document.querySelectorAll('a,.panel,.project-card,.btn,.filter-pill,.cert-card,.timeline-item,.contact-card,.role-pill').forEach(el=>{
+  document.querySelectorAll('a,.panel,.project-card,.btn,.filter-pill,.cert-card,.cert-float,.timeline-item,.contact-card,.role-pill').forEach(el=>{
     el.addEventListener('mouseenter',()=>{cur.style.width='42px';cur.style.height='42px';cur.style.borderColor='#ff2fb0';});
     el.addEventListener('mouseleave',()=>{cur.style.width='20px';cur.style.height='20px';cur.style.borderColor='#22e0f5';});
   });
@@ -426,7 +518,7 @@ const hudLinks=document.querySelectorAll('.hud a');
 const secObserver=new IntersectionObserver((entries)=>{
   entries.forEach(en=>{ if(en.isIntersecting){ hudLinks.forEach(l=>l.classList.toggle('active', l.dataset.sec===en.target.id)); } });
 },{threshold:.4});
-['about','skills','projects','experience','contact'].forEach(id=>{const el=document.getElementById(id); if(el) secObserver.observe(el);});
+['about','skills','certificates','projects','experience','contact'].forEach(id=>{const el=document.getElementById(id); if(el) secObserver.observe(el);});
 
 /* ---------- scroll reveal ---------- */
 const io=new IntersectionObserver((entries)=>{entries.forEach(en=>{if(en.isIntersecting)en.target.classList.add('in');});},{threshold:.12});
@@ -584,7 +676,7 @@ const tctx=trunkCanvas.getContext('2d');
 function sizeTrunk(){
   const stageEl=document.querySelector('.project-stage');
   const w=220, h=(stageEl && stageEl.clientHeight) || window.innerHeight;
-  const dpr=Math.min(devicePixelRatio,2);
+  const dpr=isMobile?1:Math.min(devicePixelRatio,2);
   trunkCanvas.width=w*dpr; trunkCanvas.height=h*dpr;
   trunkCanvas.style.width=w+'px'; trunkCanvas.style.height=h+'px';
   tctx.setTransform(dpr,0,0,dpr,0,0);
@@ -602,23 +694,23 @@ const strands=strandColors.map(c=>({
 }));
 const pulses=strandColors.slice(0,4).map((c)=>({color:c, offset:Math.random(), speed:0.05+Math.random()*0.05}));
 
+const trunkStep = isMobile ? 14 : 6;
 function drawTrunk(t){
-  const dpr=Math.min(devicePixelRatio,2);
+  const dpr=isMobile?1:Math.min(devicePixelRatio,2);
   const w=trunkCanvas.width/dpr, h=trunkCanvas.height/dpr;
   tctx.clearRect(0,0,w,h);
   const cx=w/2;
   tctx.globalCompositeOperation='lighter';
   strands.forEach(s=>{
     tctx.beginPath();
-    for(let y=0;y<=h;y+=6){
+    for(let y=0;y<=h;y+=trunkStep){
       const x=cx + Math.sin(y*s.freq + t*s.speed + s.phase)*s.amp + Math.sin(y*0.003+t*s.drift)*14;
       if(y===0) tctx.moveTo(x,y); else tctx.lineTo(x,y);
     }
     tctx.strokeStyle=s.color;
     tctx.globalAlpha=0.32;
     tctx.lineWidth=1.3;
-    tctx.shadowColor=s.color;
-    tctx.shadowBlur=15;
+    if(!isMobile){ tctx.shadowColor=s.color; tctx.shadowBlur=15; }
     tctx.stroke();
   });
   tctx.shadowBlur=0;
@@ -636,9 +728,10 @@ function drawTrunk(t){
   });
   tctx.globalCompositeOperation='source-over';
   tctx.globalAlpha=1;
-  requestAnimationFrame((ts)=>drawTrunk(ts/1000));
+  if(!document.hidden) requestAnimationFrame((ts)=>drawTrunk(ts/1000));
 }
 requestAnimationFrame((ts)=>drawTrunk(ts/1000));
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) requestAnimationFrame((ts)=>drawTrunk(ts/1000)); });
 
 /* ================= THREE.JS PARTICLE BACKGROUND ================= */
 const bgCanvas=document.getElementById('bg-canvas');
@@ -647,19 +740,22 @@ const bloomCtx=bloomCanvas.getContext('2d');
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 0.1, 100);
 camera.position.set(0,0,7);
-const renderer=new THREE.WebGLRenderer({canvas:bgCanvas, antialias:true, alpha:true});
-renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const renderer=new THREE.WebGLRenderer({canvas:bgCanvas, antialias:!isMobile, alpha:true, powerPreference:'high-performance'});
+const bgDPR=isMobile?1:Math.min(devicePixelRatio,2);
+renderer.setPixelRatio(bgDPR);
 renderer.setSize(innerWidth, innerHeight);
 function resizeAll(){
+  renderer.setPixelRatio(isMobile?1:Math.min(devicePixelRatio,2));
   renderer.setSize(innerWidth, innerHeight);
   camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
-  bloomCanvas.width=innerWidth*Math.min(devicePixelRatio,2);
-  bloomCanvas.height=innerHeight*Math.min(devicePixelRatio,2);
+  const bdpr=isMobile?1:Math.min(devicePixelRatio,2);
+  bloomCanvas.width=innerWidth*bdpr;
+  bloomCanvas.height=innerHeight*bdpr;
 }
 resizeAll();
 window.addEventListener('resize', resizeAll);
 
-const PCOUNT=Math.min(1800, Math.floor(innerWidth*innerHeight/850));
+const PCOUNT= isMobile ? Math.min(500, Math.floor(innerWidth*innerHeight/1200)) : Math.min(1800, Math.floor(innerWidth*innerHeight/850));
 const positions=new Float32Array(PCOUNT*3);
 const colors=new Float32Array(PCOUNT*3);
 const speeds=new Float32Array(PCOUNT);
@@ -719,11 +815,235 @@ function animate(){
   points.rotation.y=t*0.015;
 
   renderer.render(scene, camera);
-  bloomCtx.clearRect(0,0,bloomCanvas.width,bloomCanvas.height);
-  bloomCtx.drawImage(bgCanvas,0,0,bloomCanvas.width,bloomCanvas.height);
-  requestAnimationFrame(animate);
+  if(!isMobile){
+    bloomCtx.clearRect(0,0,bloomCanvas.width,bloomCanvas.height);
+    bloomCtx.drawImage(bgCanvas,0,0,bloomCanvas.width,bloomCanvas.height);
+  }
+  if(!document.hidden) requestAnimationFrame(animate);
 }
 animate();
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) requestAnimationFrame(animate); });
+
+/* ================= CERTIFICATES: floating horizontal orbit ================= */
+const certificates=[
+  { img:"certificates/cert-tata-genai-data-analytics.jpg", title:"GenAI Powered Data Analytics", issuer:"Tata · via Forage", date:"Completed July 2026" },
+  { img:"certificates/cert-commonwealth-bank-data-science.jpg", title:"Introduction to Data Science", issuer:"Commonwealth Bank · via Forage", date:"Completed Aug 2026" },
+  { img:"certificates/cert-quantium-data-analytics.jpg", title:"Data Analytics Job Simulation", issuer:"Quantium · via Forage", date:"Completed July 2026" },
+  { img:"certificates/cert-jpmorgan-quant-research.jpg", title:"Quantitative Research", issuer:"JPMorgan Chase & Co. · via Forage", date:"Completed July 2026" },
+  { img:"certificates/cert-oneroadmap-data-analyst.jpg", title:"Data Analyst Job Simulation", issuer:"OneRoadmap", date:"Certified July 2026" },
+  { img:"certificates/cert-deloitte-data-analytics.jpg", title:"Data Analytics Job Simulation", issuer:"Deloitte Australia · via Forage", date:"Completed Oct 2025" },
+  { img:"certificates/cert-mastercard-cybersecurity.jpg", title:"Cybersecurity Job Simulation", issuer:"Mastercard · via Forage", date:"Completed Oct 2025" },
+];
+
+(function initCertOrbit(){
+  const viewport=document.getElementById('certViewport');
+  const track=document.getElementById('certTrack');
+  const certSection=document.getElementById('certificates');
+  if(!viewport||!track) return;
+
+  const SETS=3; // render 3 copies back-to-back so the loop is seamless in both directions
+  track.innerHTML='';
+  for(let s=0;s<SETS;s++){
+    certificates.forEach((c,i)=>{
+      const slot=document.createElement('div');
+      slot.className='cert-slot';
+      slot.innerHTML=`
+        <div class="cert-float" style="animation-delay:${(i%certificates.length)*-0.7}s">
+          <img src="${c.img}" alt="${c.title} certificate" loading="lazy"/>
+          <div class="cert-float-body">
+            <h4>${c.title}</h4>
+            <div class="issuer">${c.issuer}</div>
+            <div class="date">${c.date}</div>
+          </div>
+        </div>`;
+      slot.addEventListener('click', (e)=>{
+        if(Math.abs(dragTotalMove)>6) return; // was a drag, not a tap
+        openCertLightbox(c);
+      });
+      track.appendChild(slot);
+    });
+  }
+  bindCursorTargets();
+
+  let slots=[], slotWidth=0, setWidth=0;
+  function measure(){
+    slots=Array.from(track.querySelectorAll('.cert-slot'));
+    if(!slots.length) return;
+    slotWidth=slots[0].getBoundingClientRect().width + parseFloat(getComputedStyle(slots[0]).marginLeft)*2;
+    setWidth=slotWidth*certificates.length;
+  }
+  measure();
+
+  let posX=-setWidth; // start centered on the middle set
+  let dragging=false, dragStartX=0, dragStartPos=0, dragTotalMove=0;
+  let lastInteraction=0;
+  const AUTO_SPEED = isMobile? 14 : 18; // px per second, drifting left → right
+  let visible=false;
+
+  const secObs=new IntersectionObserver((entries)=>{ entries.forEach(en=>{ visible=en.isIntersecting; if(visible) requestAnimationFrame(loop); }); },{threshold:.1});
+  secObs.observe(certSection);
+
+  function applyTransforms(){
+    track.style.transform=`translate3d(${posX}px,0,0)`;
+    const vw=viewport.getBoundingClientRect().width;
+    const center=vw/2;
+    slots.forEach(slot=>{
+      const left=slot.offsetLeft + posX + slotWidth/2;
+      const delta=left-center;
+      const norm=Math.max(-1,Math.min(1, delta/(vw*0.55)));
+      const scale=1-Math.abs(norm)*0.28;
+      const rot=norm*-22;
+      const arc=Math.abs(norm)*26;
+      const opacity=1-Math.abs(norm)*0.55;
+      slot.style.transform=`translateY(${arc}px) rotateY(${rot}deg) scale(${scale})`;
+      slot.style.opacity=Math.max(opacity,0.15);
+      slot.style.zIndex=String(100-Math.round(Math.abs(norm)*50));
+    });
+  }
+
+  function wrap(){
+    if(posX> -0.001) posX-=setWidth;
+    if(posX< -setWidth*2) posX+=setWidth;
+  }
+
+  let lastT=performance.now();
+  function loop(now){
+    if(!visible) return;
+    const dt=Math.min((now-lastT)/1000, 0.05); lastT=now;
+    if(!dragging && (now-lastInteraction)>150){
+      posX += AUTO_SPEED*dt;
+    }
+    wrap();
+    applyTransforms();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  function pointerX(e){ return e.touches? e.touches[0].clientX : e.clientX; }
+  viewport.addEventListener('pointerdown',(e)=>{
+    dragging=true; dragTotalMove=0;
+    dragStartX=pointerX(e); dragStartPos=posX;
+    viewport.classList.add('dragging');
+    lastInteraction=performance.now();
+    viewport.setPointerCapture && e.pointerId!=null && viewport.setPointerCapture(e.pointerId);
+  });
+  viewport.addEventListener('pointermove',(e)=>{
+    if(!dragging) return;
+    const dx=pointerX(e)-dragStartX;
+    dragTotalMove=dx;
+    posX=dragStartPos+dx;
+    lastInteraction=performance.now();
+  });
+  function endDrag(){
+    dragging=false;
+    viewport.classList.remove('dragging');
+    lastInteraction=performance.now();
+  }
+  viewport.addEventListener('pointerup',endDrag);
+  viewport.addEventListener('pointercancel',endDrag);
+  viewport.addEventListener('pointerleave',()=>{ if(dragging) endDrag(); });
+
+  window.addEventListener('resize', ()=>{ const wasSet=setWidth; measure(); posX = posX/wasSet*setWidth || -setWidth; });
+})();
+
+/* ---------- certificate lightbox ---------- */
+const certLightbox=document.getElementById('certLightbox');
+const certLightboxImg=document.getElementById('certLightboxImg');
+const certLightboxTitle=document.getElementById('certLightboxTitle');
+const certLightboxMeta=document.getElementById('certLightboxMeta');
+function openCertLightbox(c){
+  certLightboxImg.src=c.img;
+  certLightboxTitle.textContent=c.title;
+  certLightboxMeta.textContent=`${c.issuer} · ${c.date}`;
+  certLightbox.classList.add('open');
+}
+function closeCertLightbox(){ certLightbox.classList.remove('open'); }
+document.getElementById('certLightboxClose').addEventListener('click', closeCertLightbox);
+certLightbox.addEventListener('click', (e)=>{ if(e.target===certLightbox) closeCertLightbox(); });
+window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeCertLightbox(); });
+
+/* ================= CERTIFICATES: rotating multicolor particle sphere ================= */
+(function initCertSphere(){
+  const canvas=document.getElementById('certSphereCanvas');
+  if(!canvas) return;
+  const certSection=document.getElementById('certificates');
+  const sScene=new THREE.Scene();
+  const sCamera=new THREE.PerspectiveCamera(45, 1, 0.1, 20);
+  sCamera.position.set(0,0,6.2);
+  const sRenderer=new THREE.WebGLRenderer({canvas, antialias:!isMobile, alpha:true});
+  const sDPR=isMobile?1:Math.min(devicePixelRatio,2);
+  sRenderer.setPixelRatio(sDPR);
+
+  function sizeSphere(){
+    const box=canvas.getBoundingClientRect();
+    const size=Math.max(box.width,1);
+    sRenderer.setSize(size,size,false);
+    sCamera.aspect=1; sCamera.updateProjectionMatrix();
+  }
+
+  const SCOUNT = isMobile ? 700 : 2200;
+  const sPositions=new Float32Array(SCOUNT*3);
+  const sColors=new Float32Array(SCOUNT*3);
+  const sPalette=[new THREE.Color(0x7c3aed), new THREE.Color(0x22e0f5), new THREE.Color(0xff2fb0), new THREE.Color(0xb47bff)];
+  const R=2.15;
+  for(let i=0;i<SCOUNT;i++){
+    const theta=Math.random()*Math.PI*2;
+    const phi=Math.acos((Math.random()*2)-1);
+    // slight swirl distortion so it doesn't look like a perfect uniform ball
+    const wobble=1 + Math.sin(phi*5+theta*3)*0.06;
+    const r=R*wobble;
+    sPositions[i*3]=r*Math.sin(phi)*Math.cos(theta);
+    sPositions[i*3+1]=r*Math.sin(phi)*Math.sin(theta);
+    sPositions[i*3+2]=r*Math.cos(phi);
+    const c=sPalette[Math.floor(Math.random()*sPalette.length)];
+    sColors[i*3]=c.r; sColors[i*3+1]=c.g; sColors[i*3+2]=c.b;
+  }
+  const sGeo=new THREE.BufferGeometry();
+  sGeo.setAttribute('position', new THREE.BufferAttribute(sPositions,3));
+  sGeo.setAttribute('color', new THREE.BufferAttribute(sColors,3));
+  const sMat=new THREE.PointsMaterial({size:0.028, vertexColors:true, transparent:true, opacity:.85, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true});
+  const sPoints=new THREE.Points(sGeo, sMat);
+  sScene.add(sPoints);
+
+  // a couple of bright swept arcs, echoing the reference image's glowing streaks
+  const arcCount=3;
+  for(let a=0;a<arcCount;a++){
+    const arcPts=[];
+    const tilt=Math.random()*Math.PI;
+    const axisTilt2=Math.random()*Math.PI*2;
+    for(let i=0;i<=64;i++){
+      const ang=(i/64)*Math.PI*2;
+      const x=Math.cos(ang)*R*1.02, y=Math.sin(ang)*R*1.02, z=0;
+      const v=new THREE.Vector3(x,y,z);
+      v.applyAxisAngle(new THREE.Vector3(1,0,0), tilt);
+      v.applyAxisAngle(new THREE.Vector3(0,1,0), axisTilt2);
+      arcPts.push(v);
+    }
+    const arcGeo=new THREE.BufferGeometry().setFromPoints(arcPts);
+    const arcColor=sPalette[a%sPalette.length];
+    const arcMat=new THREE.LineBasicMaterial({color:arcColor, transparent:true, opacity:.35, blending:THREE.AdditiveBlending});
+    sScene.add(new THREE.Line(arcGeo, arcMat));
+  }
+
+  let sVisible=false;
+  const sObs=new IntersectionObserver((entries)=>{ entries.forEach(en=>{ sVisible=en.isIntersecting; if(sVisible){ sizeSphere(); requestAnimationFrame(sLoop);} }); },{threshold:.1});
+  sObs.observe(certSection);
+  window.addEventListener('resize', sizeSphere);
+  sizeSphere();
+
+  const sClock=new THREE.Clock();
+  function sLoop(){
+    if(!sVisible || document.hidden) return;
+    const t=sClock.getElapsedTime();
+    sPoints.rotation.y=t*0.16;
+    sPoints.rotation.x=Math.sin(t*0.08)*0.18;
+    sScene.children.forEach(ch=>{ if(ch.isLine){ ch.rotation.y=t*0.1; ch.rotation.z=t*0.05; } });
+    sRenderer.render(sScene, sCamera);
+    requestAnimationFrame(sLoop);
+  }
+  requestAnimationFrame(sLoop);
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && sVisible) requestAnimationFrame(sLoop); });
+})();
 </script>
 </body>
 </html>
