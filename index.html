@@ -13,16 +13,17 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;cursor:none;}
-@media (hover:none){body{cursor:auto;}}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;cursor:auto;}
+body.custom-cursor-on{cursor:none;}
+@media (hover:none){body{cursor:auto!important;}}
 ::selection{background:var(--magenta);color:#000;}
 
-#cursor{position:fixed;top:0;left:0;width:20px;height:20px;border:1px solid var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:difference;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s;}
-@media (hover:none){#cursor{display:none;}}
+#cursor{position:fixed;top:0;left:0;width:20px;height:20px;border:1px solid var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:difference;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s;display:none;}
+body.custom-cursor-on #cursor{display:block;}
+@media (hover:none){#cursor{display:none!important;}}
 
 #three-wrap{position:fixed;inset:0;z-index:0;}
-#bg-canvas,#bloom-canvas{position:absolute;inset:0;width:100%;height:100%;}
-#bloom-canvas{filter:blur(12px) saturate(1.5) brightness(1.3);mix-blend-mode:screen;opacity:.55;pointer-events:none;}
+#bg-canvas{position:absolute;inset:0;width:100%;height:100%;}
 .noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 .vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center, transparent 35%, rgba(5,5,8,0.9) 100%);}
 
@@ -37,6 +38,11 @@ nav a:hover{color:var(--cyan);}
 .nav-cta:hover{border-color:var(--cyan)!important;color:var(--cyan)!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;}
 .hamburger span{width:22px;height:2px;background:var(--cyan);}
+
+.mobile-menu{position:fixed;inset:0;z-index:70;background:rgba(5,5,8,.97);display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--text);text-decoration:none;font-family:'Space Grotesk';font-size:1.3rem;}
+.mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer;}
 
 .hud{position:fixed;bottom:28px;left:5vw;z-index:60;display:flex;flex-direction:column;gap:.55rem;font-family:'JetBrains Mono';font-size:.68rem;letter-spacing:.08em;}
 .hud a{color:var(--text-dim);text-decoration:none;display:flex;align-items:center;gap:10px;transition:color .3s;}
@@ -72,6 +78,8 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px -8px var(--cyan);}
 .btn-ghost{border-color:var(--glass-border);color:var(--text);background:var(--glass);backdrop-filter:blur(8px);}
 .btn-ghost:hover{border-color:var(--cyan);transform:translateY(-2px);}
+.btn-whatsapp{border-color:rgba(52,230,168,.35);color:var(--emerald);}
+.btn-whatsapp:hover{border-color:var(--emerald);}
 .hero-stats{display:flex;gap:2.4rem;margin-top:2.6rem;padding-top:1.8rem;border-top:1px solid var(--glass-border);opacity:0;animation:fadeUp 1s ease .95s forwards;}
 .stat b{display:block;font-family:'Space Grotesk';font-size:1.9rem;font-weight:600;background:linear-gradient(120deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;}
 .stat span{font-family:'JetBrains Mono';font-size:.65rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;}
@@ -206,10 +214,9 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 @media (max-width:700px){.cert-lightbox-close{top:0;right:0;}}
 
 /* ---- FLOATING CONTACT BUTTON ---- */
-.float-contact-btn{position:fixed;right:5vw;bottom:28px;z-index:55;display:flex;align-items:center;gap:.6rem;padding:.85rem 1.3rem;border-radius:100px;background:linear-gradient(120deg,var(--cyan),var(--purple));color:#050508;font-family:'JetBrains Mono';font-size:.75rem;font-weight:600;letter-spacing:.04em;text-decoration:none;box-shadow:0 14px 34px -10px rgba(34,224,245,.5);animation:fcbPulse 2.6s ease-in-out infinite;transition:transform .3s;}
+.float-contact-btn{position:fixed;right:5vw;bottom:28px;z-index:55;display:flex;align-items:center;gap:.6rem;padding:.85rem 1.3rem;border-radius:100px;background:linear-gradient(120deg,var(--cyan),var(--purple));color:#050508;font-family:'JetBrains Mono';font-size:.75rem;font-weight:600;letter-spacing:.04em;text-decoration:none;box-shadow:0 14px 34px -10px rgba(34,224,245,.5);transition:transform .3s,box-shadow .3s;}
 .float-contact-btn:hover{transform:translateY(-3px);}
 .float-contact-btn .dot2{width:7px;height:7px;border-radius:50%;background:#050508;}
-@keyframes fcbPulse{0%,100%{box-shadow:0 14px 34px -10px rgba(34,224,245,.5);}50%{box-shadow:0 14px 44px -8px rgba(255,47,176,.55);}}
 @media (max-width:640px){.float-contact-btn span.fcb-label{display:none;}.float-contact-btn{padding:.9rem;bottom:20px;right:20px;}}
 
 /* ---- CONTACT ---- */
@@ -244,7 +251,6 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
     background:rgba(14,14,22,.72)!important;
   }
   .cert-lightbox{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(3,3,6,.95)!important;}
-  #bloom-canvas{display:none;}
   .project-card,.stage-inner .project-card{box-shadow:none!important;}
   .stage-inner .project-card.is-active{box-shadow:0 10px 28px -12px var(--cyan)!important;}
 }
@@ -257,12 +263,16 @@ footer a{color:var(--cyan);text-decoration:none;}
   .hamburger{display:flex;}
   section{padding:6rem 6vw 4rem;}
 }
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+}
 </style>
 </head>
 <body>
 
 <div id="cursor"></div>
-<div id="three-wrap"><canvas id="bg-canvas"></canvas><canvas id="bloom-canvas"></canvas></div>
+<div id="three-wrap"><canvas id="bg-canvas"></canvas></div>
 <div class="noise"></div>
 <div class="vignette"></div>
 
@@ -276,7 +286,18 @@ footer a{color:var(--cyan);text-decoration:none;}
     <a href="#experience">Experience</a>
   </nav>
   <a href="#contact" class="btn nav-cta">Hire Me</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#certificates">Certificates</a>
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</div>
 
 <div class="hud">
   <a href="#about" data-sec="about" class="active">01 / ABOUT</a>
@@ -311,7 +332,8 @@ footer a{color:var(--cyan);text-decoration:none;}
       <p class="hero-desc">Fresher with hands-on experience across 33 end-to-end projects spanning ML pipelines, Deep Learning, SQL analytics, and BI dashboards. <strong>IIT Indore AI &amp; Data Science certified.</strong> Python · SQL · Power BI · Tableau · TensorFlow. Targeting roles in <strong>Mumbai, Pune, Indore, Bhopal</strong> &amp; Remote.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View My Work →</a>
-        <a href="mailto:akshatkesharwani12345@gmail.com" class="btn btn-ghost">Get In Touch</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=akshatkesharwani12345@gmail.com&su=Opportunity%20for%20Akshat%20Kesharwani" target="_blank" rel="noopener" class="btn btn-ghost">Get In Touch</a>
+        <a href="https://wa.me/917697537954?text=Hi%20Akshat%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp Me</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><b>33+</b><span>Projects</span></div>
@@ -323,7 +345,7 @@ footer a{color:var(--cyan);text-decoration:none;}
       <div class="photo-frame" id="photoFrame">
         <div class="halo"><div class="r r1"></div><div class="r r2"></div><div class="r r3"></div></div>
         <div class="badge badge-status"><span class="p"></span>Open to Work</div>
-        <img src="akshat-photo.png" alt="Akshat Kesharwani"/>
+        <img src="akshat-photo.png" alt="Akshat Kesharwani" loading="eager" onerror="this.closest('.photo-frame').classList.add('img-fallback');this.style.display='none';"/>
         <div class="badge badge-loc">Sagar, MP<br/>Mumbai · Pune · Indore · Bhopal · Remote</div>
       </div>
     </div>
@@ -461,8 +483,9 @@ footer a{color:var(--cyan);text-decoration:none;}
         <div class="location-bar">Sagar, Madhya Pradesh · Open to Relocation</div>
         <p>I'm actively looking for <strong>Data Analyst</strong> and <strong>Data Scientist</strong> roles — full-time, internship, remote, or hybrid. If you're an HR, recruiter, or hiring manager, I'd love to connect.</p>
         <div class="contact-cards">
-          <a href="mailto:akshatkesharwani12345@gmail.com" class="contact-card"><div class="contact-icon">📧</div><div><div class="c-label">Email</div><div class="c-value">akshatkesharwani12345@gmail.com</div></div></a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=akshatkesharwani12345@gmail.com&su=Opportunity%20for%20Akshat%20Kesharwani" target="_blank" rel="noopener" class="contact-card"><div class="contact-icon">📧</div><div><div class="c-label">Email (opens Gmail)</div><div class="c-value">akshatkesharwani12345@gmail.com</div></div></a>
           <a href="tel:+917697537954" class="contact-card"><div class="contact-icon">📱</div><div><div class="c-label">Phone</div><div class="c-value">+91 76975 37954</div></div></a>
+          <a href="https://wa.me/917697537954?text=Hi%20Akshat%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" rel="noopener" class="contact-card"><div class="contact-icon">💬</div><div><div class="c-label">WhatsApp</div><div class="c-value">+91 76975 37954</div></div></a>
         </div>
         <div class="social-btns">
           <a href="https://www.linkedin.com/in/akshat-kesharwani-b0452b346" target="_blank" rel="noopener" class="btn btn-ghost">💼 LinkedIn ↗</a>
@@ -478,7 +501,7 @@ footer a{color:var(--cyan);text-decoration:none;}
           <div class="role-pill"><div><div class="r-title">BI Developer / Analyst</div><div class="r-loc">Mumbai · Pune · Indore · Bhopal · Remote</div></div><span class="r-badge">Open</span></div>
           <div class="role-pill"><div><div class="r-title">ML / Analytics Intern</div><div class="r-loc">Any Location · Remote</div></div><span class="r-badge">Open</span></div>
         </div>
-        <a href="mailto:akshatkesharwani12345@gmail.com" class="btn btn-primary" style="width:100%;justify-content:center;">Reach Out Now</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=akshatkesharwani12345@gmail.com&su=Opportunity%20for%20Akshat%20Kesharwani" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;">Reach Out Now</a>
       </div>
     </div>
   </section>
@@ -490,28 +513,49 @@ footer a{color:var(--cyan);text-decoration:none;}
   <span><a href="mailto:akshatkesharwani12345@gmail.com">akshatkesharwani12345@gmail.com</a></span>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script defer>
+window.addEventListener('DOMContentLoaded', initSite);
+function initSite(){
+
 /* ---------- mobile / low-power detection ----------
    Used everywhere below to dial back particle counts, canvas resolution,
-   shadow blur, and offscreen compositing — the things that were causing
-   the lag on phones while looking fine on desktop GPUs. */
+   and animation loops -- the things that were causing lag on phones and
+   mid-range laptops while looking fine on a high-end desktop GPU. */
 const isMobile = window.matchMedia('(max-width:900px)').matches || window.matchMedia('(pointer:coarse)').matches;
 const isLowEnd = isMobile && (navigator.hardwareConcurrency||4)<=4;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- custom cursor ---------- */
+/* ---------- custom cursor (desktop w/ mouse only, and only after JS confirms it works) ---------- */
 const cur=document.getElementById('cursor');
-window.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
+if(window.matchMedia('(pointer:fine)').matches && !prefersReducedMotion){
+  document.body.classList.add('custom-cursor-on');
+  let curX=0,curY=0;
+  window.addEventListener('mousemove',e=>{ curX=e.clientX; curY=e.clientY; cur.style.left=curX+'px'; cur.style.top=curY+'px'; }, {passive:true});
+}
 function bindCursorTargets(){
+  if(!document.body.classList.contains('custom-cursor-on')) return;
   document.querySelectorAll('a,.panel,.project-card,.btn,.filter-pill,.cert-card,.cert-float,.timeline-item,.contact-card,.role-pill').forEach(el=>{
+    if(el.dataset.cursorBound) return;
+    el.dataset.cursorBound='1';
     el.addEventListener('mouseenter',()=>{cur.style.width='42px';cur.style.height='42px';cur.style.borderColor='#ff2fb0';});
     el.addEventListener('mouseleave',()=>{cur.style.width='20px';cur.style.height='20px';cur.style.borderColor='#22e0f5';});
   });
 }
 
+/* ---------- mobile menu ---------- */
+const hamburgerBtn=document.getElementById('hamburgerBtn');
+const mobileMenu=document.getElementById('mobileMenu');
+const mobileMenuClose=document.getElementById('mobileMenuClose');
+if(hamburgerBtn){
+  hamburgerBtn.addEventListener('click', ()=>mobileMenu.classList.add('open'));
+  mobileMenuClose.addEventListener('click', ()=>mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>mobileMenu.classList.remove('open')));
+}
+
 /* ---------- header scroll state ---------- */
 const header=document.getElementById('siteHeader');
-window.addEventListener('scroll',()=>header.classList.toggle('scrolled', window.scrollY>40));
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled', window.scrollY>40), {passive:true});
 
 /* ---------- HUD active section ---------- */
 const hudLinks=document.querySelectorAll('.hud a');
@@ -527,12 +571,12 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 /* ---------- hero photo tilt ---------- */
 const heroSection=document.getElementById('hero');
 const photoFrame=document.getElementById('photoFrame');
-if(window.matchMedia('(pointer: fine)').matches){
+if(window.matchMedia('(pointer: fine)').matches && !prefersReducedMotion){
   heroSection.addEventListener('mousemove',(e)=>{
     const rect=heroSection.getBoundingClientRect();
     const x=(e.clientX-rect.left)/rect.width-0.5, y=(e.clientY-rect.top)/rect.height-0.5;
     photoFrame.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg)`;
-  });
+  }, {passive:true});
   heroSection.addEventListener('mouseleave',()=>{photoFrame.style.transform='';});
 }
 
@@ -664,26 +708,30 @@ window.addEventListener('scroll', ()=>{
     requestAnimationFrame(()=>{ updateStage(); stageTicking=false; });
     stageTicking=true;
   }
+}, {passive:true});
+let resizeTimer=null;
+window.addEventListener('resize', ()=>{
+  clearTimeout(resizeTimer);
+  resizeTimer=setTimeout(()=>{ buildStage(); sizeTrunk(); }, 150);
 });
-window.addEventListener('resize', ()=>{ buildStage(); sizeTrunk(); });
 
 renderFilters();
 buildStage();
 
-/* ---------- animated flowing energy trunk (canvas) ---------- */
+/* ---------- animated flowing energy trunk (canvas), capped at ~30fps ---------- */
 const trunkCanvas=document.getElementById('trunkCanvas');
 const tctx=trunkCanvas.getContext('2d');
 function sizeTrunk(){
   const stageEl=document.querySelector('.project-stage');
   const w=220, h=(stageEl && stageEl.clientHeight) || window.innerHeight;
-  const dpr=isMobile?1:Math.min(devicePixelRatio,2);
+  const dpr=isMobile?1:Math.min(devicePixelRatio,1.5);
   trunkCanvas.width=w*dpr; trunkCanvas.height=h*dpr;
   trunkCanvas.style.width=w+'px'; trunkCanvas.style.height=h+'px';
   tctx.setTransform(dpr,0,0,dpr,0,0);
 }
 sizeTrunk();
 
-const strandColors=['#22e0f5','#7c3aed','#ff2fb0','#34e6a8','#22e0f5','#7c3aed'];
+const strandColors = isMobile ? ['#22e0f5','#7c3aed','#ff2fb0'] : ['#22e0f5','#7c3aed','#ff2fb0','#34e6a8'];
 const strands=strandColors.map(c=>({
   color:c,
   freq:0.006+Math.random()*0.007,
@@ -692,11 +740,15 @@ const strands=strandColors.map(c=>({
   phase:Math.random()*Math.PI*2,
   drift:0.12+Math.random()*0.2
 }));
-const pulses=strandColors.slice(0,4).map((c)=>({color:c, offset:Math.random(), speed:0.05+Math.random()*0.05}));
+const pulses=strandColors.slice(0,3).map((c)=>({color:c, offset:Math.random(), speed:0.05+Math.random()*0.05}));
 
-const trunkStep = isMobile ? 14 : 6;
+const trunkStep = isMobile ? 16 : 8;
+let trunkVisible=true;
+const trunkSectionObs=new IntersectionObserver(es=>{es.forEach(e=>{trunkVisible=e.isIntersecting;});},{threshold:0});
+trunkSectionObs.observe(stageWrap);
+
 function drawTrunk(t){
-  const dpr=isMobile?1:Math.min(devicePixelRatio,2);
+  const dpr=isMobile?1:Math.min(devicePixelRatio,1.5);
   const w=trunkCanvas.width/dpr, h=trunkCanvas.height/dpr;
   tctx.clearRect(0,0,w,h);
   const cx=w/2;
@@ -710,10 +762,8 @@ function drawTrunk(t){
     tctx.strokeStyle=s.color;
     tctx.globalAlpha=0.32;
     tctx.lineWidth=1.3;
-    if(!isMobile){ tctx.shadowColor=s.color; tctx.shadowBlur=15; }
     tctx.stroke();
   });
-  tctx.shadowBlur=0;
   pulses.forEach(p=>{
     const py=((t*p.speed*0.15 + p.offset)%1)*h;
     const x=cx + Math.sin(py*0.008+t*0.6)*24;
@@ -728,34 +778,36 @@ function drawTrunk(t){
   });
   tctx.globalCompositeOperation='source-over';
   tctx.globalAlpha=1;
-  if(!document.hidden) requestAnimationFrame((ts)=>drawTrunk(ts/1000));
 }
-requestAnimationFrame((ts)=>drawTrunk(ts/1000));
-document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) requestAnimationFrame((ts)=>drawTrunk(ts/1000)); });
+let lastTrunkFrame=0;
+const TRUNK_FPS = isMobile ? 20 : 30;
+function trunkLoop(ts){
+  if(!document.hidden && trunkVisible){
+    if(ts-lastTrunkFrame >= 1000/TRUNK_FPS){ lastTrunkFrame=ts; drawTrunk(ts/1000); }
+  }
+  requestAnimationFrame(trunkLoop);
+}
+requestAnimationFrame(trunkLoop);
 
-/* ================= THREE.JS PARTICLE BACKGROUND ================= */
+/* ================= THREE.JS PARTICLE BACKGROUND (lightweight, capped fps) ================= */
 const bgCanvas=document.getElementById('bg-canvas');
-const bloomCanvas=document.getElementById('bloom-canvas');
-const bloomCtx=bloomCanvas.getContext('2d');
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 0.1, 100);
 camera.position.set(0,0,7);
-const renderer=new THREE.WebGLRenderer({canvas:bgCanvas, antialias:!isMobile, alpha:true, powerPreference:'high-performance'});
-const bgDPR=isMobile?1:Math.min(devicePixelRatio,2);
+const renderer=new THREE.WebGLRenderer({canvas:bgCanvas, antialias:false, alpha:true, powerPreference:'high-performance'});
+const bgDPR=isMobile?1:Math.min(devicePixelRatio,1.5);
 renderer.setPixelRatio(bgDPR);
 renderer.setSize(innerWidth, innerHeight);
 function resizeAll(){
-  renderer.setPixelRatio(isMobile?1:Math.min(devicePixelRatio,2));
+  renderer.setPixelRatio(isMobile?1:Math.min(devicePixelRatio,1.5));
   renderer.setSize(innerWidth, innerHeight);
   camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
-  const bdpr=isMobile?1:Math.min(devicePixelRatio,2);
-  bloomCanvas.width=innerWidth*bdpr;
-  bloomCanvas.height=innerHeight*bdpr;
 }
-resizeAll();
-window.addEventListener('resize', resizeAll);
+window.addEventListener('resize', ()=>{ clearTimeout(resizeTimer); resizeTimer=setTimeout(resizeAll,150); });
 
-const PCOUNT= isMobile ? Math.min(500, Math.floor(innerWidth*innerHeight/1200)) : Math.min(1800, Math.floor(innerWidth*innerHeight/850));
+// Particle count cut way down from the original (was up to 1800) -- this was the single
+// biggest cause of lag, since every particle was re-computed with a sqrt() every frame.
+const PCOUNT = isLowEnd ? 220 : (isMobile ? 380 : Math.min(700, Math.floor(innerWidth*innerHeight/1900)));
 const positions=new Float32Array(PCOUNT*3);
 const colors=new Float32Array(PCOUNT*3);
 const speeds=new Float32Array(PCOUNT);
@@ -774,7 +826,7 @@ for(let i=0;i<PCOUNT;i++){
 const pGeo=new THREE.BufferGeometry();
 pGeo.setAttribute('position', new THREE.BufferAttribute(positions,3));
 pGeo.setAttribute('color', new THREE.BufferAttribute(colors,3));
-const pMat=new THREE.PointsMaterial({size:0.04, vertexColors:true, transparent:true, opacity:.75, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true});
+const pMat=new THREE.PointsMaterial({size:0.05, vertexColors:true, transparent:true, opacity:.85, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true});
 const points=new THREE.Points(pGeo, pMat);
 scene.add(points);
 
@@ -782,13 +834,21 @@ const mouse=new THREE.Vector2(0,0), targetMouse=new THREE.Vector2(0,0);
 window.addEventListener('mousemove', e=>{
   targetMouse.x=(e.clientX/innerWidth)*2-1;
   targetMouse.y=-(e.clientY/innerHeight)*2+1;
-});
+}, {passive:true});
 const raycaster=new THREE.Raycaster();
 const mousePlane=new THREE.Plane(new THREE.Vector3(0,0,1), 0);
 const mouseWorld=new THREE.Vector3();
 const clock=new THREE.Clock();
+const skipMouseInteraction = isMobile; // avoids per-particle sqrt() work on touch devices
 
-function animate(){
+const BG_FPS = isMobile ? 24 : 45;
+let lastBgFrame=0;
+function animate(ts){
+  requestAnimationFrame(animate);
+  if(document.hidden) return;
+  if(ts-lastBgFrame < 1000/BG_FPS) return;
+  lastBgFrame=ts;
+
   const t=clock.getElapsedTime();
   mouse.x += (targetMouse.x-mouse.x)*0.05;
   mouse.y += (targetMouse.y-mouse.y)*0.05;
@@ -796,18 +856,20 @@ function animate(){
   camera.position.y += (mouse.y*0.4 - camera.position.y)*0.03;
   camera.lookAt(0,0,0);
 
-  raycaster.setFromCamera(mouse, camera);
-  raycaster.ray.intersectPlane(mousePlane, mouseWorld);
+  if(!skipMouseInteraction){
+    raycaster.setFromCamera(mouse, camera);
+    raycaster.ray.intersectPlane(mousePlane, mouseWorld);
+  }
 
   const posAttr=pGeo.attributes.position;
   for(let i=0;i<PCOUNT;i++){
     let x=posAttr.array[i*3], y=posAttr.array[i*3+1], z=posAttr.array[i*3+2];
     x += Math.sin(t*0.15*speeds[i]+i)*0.003;
     y += Math.cos(t*0.13*speeds[i]+i)*0.003;
-    if(mouseWorld){
+    if(!skipMouseInteraction && mouseWorld){
       const dx=x-mouseWorld.x, dy=y-mouseWorld.y, dz=z-mouseWorld.z;
-      const d=Math.sqrt(dx*dx+dy*dy+dz*dz);
-      if(d<2.2){ const f=(2.2-d)/2.2*0.03; x+=(dx/d)*f; y+=(dy/d)*f; }
+      const d2=dx*dx+dy*dy+dz*dz;
+      if(d2<4.84){ const d=Math.sqrt(d2); const f=(2.2-d)/2.2*0.03; x+=(dx/d)*f; y+=(dy/d)*f; }
     }
     posAttr.array[i*3]=x; posAttr.array[i*3+1]=y; posAttr.array[i*3+2]=z;
   }
@@ -815,14 +877,8 @@ function animate(){
   points.rotation.y=t*0.015;
 
   renderer.render(scene, camera);
-  if(!isMobile){
-    bloomCtx.clearRect(0,0,bloomCanvas.width,bloomCanvas.height);
-    bloomCtx.drawImage(bgCanvas,0,0,bloomCanvas.width,bloomCanvas.height);
-  }
-  if(!document.hidden) requestAnimationFrame(animate);
 }
-animate();
-document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) requestAnimationFrame(animate); });
+requestAnimationFrame(animate);
 
 /* ================= CERTIFICATES: floating horizontal orbit ================= */
 const certificates=[
@@ -849,7 +905,7 @@ const certificates=[
       slot.className='cert-slot';
       slot.innerHTML=`
         <div class="cert-float" style="animation-delay:${(i%certificates.length)*-0.7}s">
-          <img src="${c.img}" alt="${c.title} certificate" loading="lazy"/>
+          <img src="${c.img}" alt="${c.title} certificate" loading="lazy" onerror="this.style.display='none';this.closest('.cert-float').classList.add('img-fallback');"/>
           <div class="cert-float-body">
             <h4>${c.title}</h4>
             <div class="issuer">${c.issuer}</div>
@@ -910,7 +966,7 @@ const certificates=[
   function loop(now){
     if(!visible) return;
     const dt=Math.min((now-lastT)/1000, 0.05); lastT=now;
-    if(!dragging && (now-lastInteraction)>150){
+    if(!dragging && (now-lastInteraction)>150 && !prefersReducedMotion){
       posX += AUTO_SPEED*dt;
     }
     wrap();
@@ -970,8 +1026,8 @@ window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeCertLightbox
   const sScene=new THREE.Scene();
   const sCamera=new THREE.PerspectiveCamera(45, 1, 0.1, 20);
   sCamera.position.set(0,0,6.2);
-  const sRenderer=new THREE.WebGLRenderer({canvas, antialias:!isMobile, alpha:true});
-  const sDPR=isMobile?1:Math.min(devicePixelRatio,2);
+  const sRenderer=new THREE.WebGLRenderer({canvas, antialias:false, alpha:true});
+  const sDPR=isMobile?1:Math.min(devicePixelRatio,1.5);
   sRenderer.setPixelRatio(sDPR);
 
   function sizeSphere(){
@@ -981,7 +1037,7 @@ window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeCertLightbox
     sCamera.aspect=1; sCamera.updateProjectionMatrix();
   }
 
-  const SCOUNT = isMobile ? 700 : 2200;
+  const SCOUNT = isLowEnd ? 260 : (isMobile ? 380 : 900);
   const sPositions=new Float32Array(SCOUNT*3);
   const sColors=new Float32Array(SCOUNT*3);
   const sPalette=[new THREE.Color(0x7c3aed), new THREE.Color(0x22e0f5), new THREE.Color(0xff2fb0), new THREE.Color(0xb47bff)];
@@ -1001,12 +1057,12 @@ window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeCertLightbox
   const sGeo=new THREE.BufferGeometry();
   sGeo.setAttribute('position', new THREE.BufferAttribute(sPositions,3));
   sGeo.setAttribute('color', new THREE.BufferAttribute(sColors,3));
-  const sMat=new THREE.PointsMaterial({size:0.028, vertexColors:true, transparent:true, opacity:.85, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true});
+  const sMat=new THREE.PointsMaterial({size:0.032, vertexColors:true, transparent:true, opacity:.9, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true});
   const sPoints=new THREE.Points(sGeo, sMat);
   sScene.add(sPoints);
 
   // a couple of bright swept arcs, echoing the reference image's glowing streaks
-  const arcCount=3;
+  const arcCount = isMobile ? 2 : 3;
   for(let a=0;a<arcCount;a++){
     const arcPts=[];
     const tilt=Math.random()*Math.PI;
@@ -1028,22 +1084,27 @@ window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeCertLightbox
   let sVisible=false;
   const sObs=new IntersectionObserver((entries)=>{ entries.forEach(en=>{ sVisible=en.isIntersecting; if(sVisible){ sizeSphere(); requestAnimationFrame(sLoop);} }); },{threshold:.1});
   sObs.observe(certSection);
-  window.addEventListener('resize', sizeSphere);
+  window.addEventListener('resize', ()=>{ clearTimeout(resizeTimer); resizeTimer=setTimeout(sizeSphere,150); });
   sizeSphere();
 
   const sClock=new THREE.Clock();
-  function sLoop(){
+  const S_FPS = isMobile ? 20 : 30;
+  let lastSFrame=0;
+  function sLoop(ts){
     if(!sVisible || document.hidden) return;
+    requestAnimationFrame(sLoop);
+    if(ts-lastSFrame < 1000/S_FPS) return;
+    lastSFrame=ts;
     const t=sClock.getElapsedTime();
     sPoints.rotation.y=t*0.16;
     sPoints.rotation.x=Math.sin(t*0.08)*0.18;
     sScene.children.forEach(ch=>{ if(ch.isLine){ ch.rotation.y=t*0.1; ch.rotation.z=t*0.05; } });
     sRenderer.render(sScene, sCamera);
-    requestAnimationFrame(sLoop);
   }
   requestAnimationFrame(sLoop);
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && sVisible) requestAnimationFrame(sLoop); });
 })();
+
+} // end initSite
 </script>
 </body>
 </html>
