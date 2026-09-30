@@ -3,30 +3,25 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Akshat Kesharwani | Data Scientist &amp; Data Analyst</title>
+<title>Akshat Kesharwani | Data Analyst, Data Scientist &amp; AI/ML Engineer</title>
+<meta name="description" content="Fresher Data Analyst, Data Scientist and AI/ML Engineer. Projects in analytics, machine learning, deep learning, GenAI and agentic AI."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --bg:#050508; --purple:#7c3aed; --cyan:#22e0f5; --magenta:#ff2fb0; --emerald:#34e6a8;
-  --text:#eef0fb; --text-dim:#8286a3; --glass:rgba(255,255,255,0.045); --glass-border:rgba(255,255,255,0.1);
-}
+:root{--bg:#050508;--purple:#7c3aed;--cyan:#22e0f5;--magenta:#ff2fb0;--emerald:#34e6a8;--text:#eef0fb;--text-dim:#8286a3;--glass:rgba(255,255,255,0.045);--glass-border:rgba(255,255,255,0.1);}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;cursor:auto;}
 body.custom-cursor-on{cursor:none;}
 @media (hover:none){body{cursor:auto!important;}}
 ::selection{background:var(--magenta);color:#000;}
-
 #cursor{position:fixed;top:0;left:0;width:20px;height:20px;border:1px solid var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:difference;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s;display:none;}
 body.custom-cursor-on #cursor{display:block;}
 @media (hover:none){#cursor{display:none!important;}}
-
 #three-wrap{position:fixed;inset:0;z-index:0;}
 #bg-canvas{position:absolute;inset:0;width:100%;height:100%;}
 .noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 .vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center, transparent 35%, rgba(5,5,8,0.9) 100%);}
-
 header{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:24px 5vw;backdrop-filter:blur(6px);transition:background .3s,padding .3s;}
 header.scrolled{background:rgba(5,5,8,.65);padding:16px 5vw;border-bottom:1px solid var(--glass-border);}
 .logo{font-family:'Space Grotesk';font-weight:700;font-size:1.05rem;letter-spacing:.05em;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
@@ -38,19 +33,16 @@ nav a:hover{color:var(--cyan);}
 .nav-cta:hover{border-color:var(--cyan)!important;color:var(--cyan)!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;}
 .hamburger span{width:22px;height:2px;background:var(--cyan);}
-
 .mobile-menu{position:fixed;inset:0;z-index:70;background:rgba(5,5,8,.97);display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;}
 .mobile-menu.open{display:flex;}
 .mobile-menu a{color:var(--text);text-decoration:none;font-family:'Space Grotesk';font-size:1.3rem;}
 .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer;}
-
 .hud{position:fixed;bottom:28px;left:5vw;z-index:60;display:flex;flex-direction:column;gap:.55rem;font-family:'JetBrains Mono';font-size:.68rem;letter-spacing:.08em;}
 .hud a{color:var(--text-dim);text-decoration:none;display:flex;align-items:center;gap:10px;transition:color .3s;}
 .hud a::before{content:'';width:14px;height:1px;background:var(--text-dim);transition:all .3s;}
 .hud a.active{color:var(--text);}
 .hud a.active::before{width:26px;background:var(--cyan);box-shadow:0 0 8px var(--cyan);}
 @media (max-width:900px){.hud{display:none;}}
-
 main{position:relative;z-index:5;}
 section{position:relative;padding:9rem 6vw 6rem;max-width:1320px;margin:0 auto;}
 .kicker{font-family:'JetBrains Mono';font-size:.7rem;letter-spacing:.3em;color:var(--magenta);text-transform:uppercase;margin-bottom:1rem;display:inline-flex;align-items:center;gap:.6rem;}
@@ -60,7 +52,7 @@ h2{font-family:'Space Grotesk';font-weight:500;font-size:clamp(1.7rem,3.4vw,2.6r
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s ease,transform .9s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
 
-/* ---- HERO ---- */
+/* HERO */
 .hero{min-height:100svh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:4vw;padding:9rem 6vw 4rem;}
 @media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:7.5rem;}}
 .eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-family:'JetBrains Mono';font-size:.72rem;letter-spacing:.3em;color:var(--cyan);text-transform:uppercase;margin-bottom:1.6rem;opacity:0;animation:fadeUp 1s ease .2s forwards;}
@@ -68,9 +60,9 @@ h2{font-family:'Space Grotesk';font-weight:500;font-size:clamp(1.7rem,3.4vw,2.6r
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
 h1.hero-name{font-family:'Space Grotesk';font-weight:600;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.02em;opacity:0;animation:fadeUp 1s ease .35s forwards;}
 h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),var(--purple) 55%,var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent;}
-.hero-role{margin-top:1.2rem;font-size:1.02rem;color:var(--text-dim);font-weight:300;opacity:0;animation:fadeUp 1s ease .5s forwards;}
+.hero-role{margin-top:1.2rem;font-size:1.02rem;color:var(--text-dim);font-weight:300;line-height:1.6;opacity:0;animation:fadeUp 1s ease .5s forwards;}
 .hero-role strong{color:var(--cyan);font-weight:500;}
-.hero-desc{margin-top:1.2rem;max-width:520px;color:var(--text-dim);font-weight:300;line-height:1.75;font-size:.92rem;opacity:0;animation:fadeUp 1s ease .65s forwards;}
+.hero-desc{margin-top:1.2rem;max-width:540px;color:var(--text-dim);font-weight:300;line-height:1.75;font-size:.92rem;opacity:0;animation:fadeUp 1s ease .65s forwards;}
 .hero-desc strong{color:var(--text);font-weight:500;}
 .hero-actions{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp 1s ease .8s forwards;}
 .btn{font-family:'JetBrains Mono';font-size:.78rem;letter-spacing:.05em;padding:.9rem 1.8rem;border-radius:100px;cursor:pointer;border:1px solid transparent;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:transform .35s,box-shadow .35s;}
@@ -80,11 +72,10 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .btn-ghost:hover{border-color:var(--cyan);transform:translateY(-2px);}
 .btn-whatsapp{border-color:rgba(52,230,168,.35);color:var(--emerald);}
 .btn-whatsapp:hover{border-color:var(--emerald);}
-.hero-stats{display:flex;gap:2.4rem;margin-top:2.6rem;padding-top:1.8rem;border-top:1px solid var(--glass-border);opacity:0;animation:fadeUp 1s ease .95s forwards;}
+.hero-stats{display:flex;gap:2.4rem;margin-top:2.6rem;padding-top:1.8rem;border-top:1px solid var(--glass-border);opacity:0;animation:fadeUp 1s ease .95s forwards;flex-wrap:wrap;}
 .stat b{display:block;font-family:'Space Grotesk';font-size:1.9rem;font-weight:600;background:linear-gradient(120deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;}
 .stat span{font-family:'JetBrains Mono';font-size:.65rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-
 .hero-visual{position:relative;display:flex;justify-content:center;perspective:1200px;opacity:0;animation:fadeUp 1.1s ease .5s forwards;}
 .photo-frame{position:relative;width:320px;height:400px;transform-style:preserve-3d;transition:transform .15s ease-out;}
 .photo-frame .halo{position:absolute;inset:-40px;pointer-events:none;}
@@ -100,19 +91,19 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .badge-status .p{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 8px var(--emerald);animation:pulse 1.6s infinite;}
 .badge-loc{bottom:-18px;right:-22px;color:var(--text-dim);line-height:1.5;text-align:right;}
 
-/* ---- ABOUT ---- */
+/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:4vw;align-items:start;}
 @media (max-width:900px){.about-grid{grid-template-columns:1fr;}}
 .about-text p{color:var(--text-dim);font-weight:300;line-height:1.8;font-size:.92rem;margin-bottom:1.1rem;}
 .about-text strong{color:var(--cyan);font-weight:500;}
-.about-details{display:flex;flex-direction:column;gap:0;background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:.4rem 1.6rem;backdrop-filter:blur(10px);}
+.about-details{display:flex;flex-direction:column;background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:.4rem 1.6rem;backdrop-filter:blur(10px);}
 .detail-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid var(--glass-border);font-size:.85rem;gap:1rem;}
 .detail-row:last-child{border-bottom:none;}
 .detail-row .label{color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;font-family:'JetBrains Mono';flex-shrink:0;}
 .detail-row .value{color:var(--text);text-align:right;}
 .detail-row .value a{color:var(--cyan);text-decoration:none;}
 
-/* ---- SKILLS ---- */
+/* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;}
 @media (max-width:900px){.skills-grid{grid-template-columns:1fr;}}
 @media (min-width:901px) and (max-width:1200px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
@@ -123,42 +114,42 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;}
 .tag{background:rgba(34,224,245,.07);color:var(--cyan);font-size:.7rem;padding:.32rem .7rem;border:1px solid rgba(34,224,245,.2);border-radius:100px;font-family:'JetBrains Mono';}
 
-/* ---- PROJECTS ---- */
-.filter-bar{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.6rem;}
-.filter-pill{background:var(--glass);border:1px solid var(--glass-border);color:var(--text-dim);font-family:'JetBrains Mono';font-size:.72rem;letter-spacing:.03em;padding:.55rem 1.1rem;border-radius:100px;cursor:pointer;transition:all .25s;backdrop-filter:blur(8px);}
-.filter-pill:hover{border-color:var(--cyan);color:var(--text);}
-.filter-pill.active{background:linear-gradient(120deg,var(--cyan),var(--purple));color:#050508;border-color:transparent;font-weight:600;}
-.filter-count{color:var(--text-dim);font-family:'JetBrains Mono';font-size:.72rem;margin-bottom:2rem;}
-.filter-count strong{color:var(--cyan);}
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-@media (max-width:1200px){.projects-grid{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:700px){.projects-grid{grid-template-columns:1fr;}}
-.project-card{background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.015));border:1px solid var(--glass-border);border-radius:18px;padding:1.5rem 1.4rem;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s;backdrop-filter:blur(10px);}
-.project-card:hover{border-color:rgba(34,224,245,.4);box-shadow:0 20px 50px -20px rgba(34,224,245,.25);}
-.project-num{font-family:'JetBrains Mono';font-size:.68rem;color:var(--text-dim);letter-spacing:.1em;margin-bottom:.7rem;}
-.project-type{font-family:'JetBrains Mono';font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--magenta);margin-bottom:.5rem;}
-.project-card h3{font-family:'Space Grotesk';font-weight:500;font-size:1.02rem;line-height:1.3;margin-bottom:.5rem;}
-.project-highlight{display:inline-block;font-family:'JetBrains Mono';font-size:.66rem;color:var(--emerald);background:rgba(52,230,168,.1);border:1px solid rgba(52,230,168,.25);padding:.22rem .6rem;border-radius:100px;margin-bottom:.7rem;}
-.project-card p{color:var(--text-dim);font-size:.8rem;line-height:1.6;font-weight:300;margin-bottom:1rem;}
-.project-tools{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.1rem;}
-.project-tool{font-family:'JetBrains Mono';font-size:.63rem;color:var(--text-dim);background:rgba(255,255,255,.04);border:1px solid var(--glass-border);padding:.22rem .55rem;border-radius:100px;}
-.project-link{font-family:'JetBrains Mono';font-size:.72rem;color:var(--cyan);text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;}
+/* PROJECT TREES */
+.stage-wrap{position:relative;z-index:5;}
+.project-stage{position:sticky;top:0;height:100svh;overflow:hidden;}
+.project-stage::before,.project-stage::after{content:'';position:absolute;left:0;right:0;z-index:4;pointer-events:none;}
+.project-stage::before{top:0;height:15vh;background:linear-gradient(var(--bg),transparent);}
+.project-stage::after{bottom:0;height:17vh;background:linear-gradient(transparent,var(--bg));}
+.stage-hint{position:absolute;top:10vh;left:50%;transform:translateX(-50%);z-index:6;font-family:'JetBrains Mono';font-size:.64rem;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;white-space:nowrap;}
+.tree-rail{position:absolute;inset:0;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none;}
+.tree-rail.dragging{cursor:grabbing;}
+.tree-slot{position:absolute;top:0;left:50%;height:100%;width:var(--sw);margin-left:calc(var(--sw) / -2);perspective:1300px;will-change:transform,opacity;}
+.tree-title{position:absolute;top:14vh;left:0;right:0;text-align:center;z-index:6;font-family:'Space Grotesk';font-weight:500;font-size:1.15rem;color:var(--c);text-shadow:0 0 18px var(--c);}
+.tree-title span{display:block;font-family:'JetBrains Mono';font-size:.66rem;color:var(--text-dim);letter-spacing:.12em;margin-top:.25rem;text-shadow:none;}
+.trunk{position:absolute;top:0;left:50%;transform:translateX(-50%);width:160px;height:100%;pointer-events:none;z-index:1;}
+.tree-inner{position:absolute;inset:0;transform-style:preserve-3d;}
+.project-card{position:absolute;top:50%;left:50%;width:var(--cw);height:330px;margin:-165px 0 0 calc(var(--cw) / -2);padding:1.3rem 1.2rem;border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.015));border:1px solid var(--c);box-shadow:0 0 22px -8px var(--c),inset 0 0 22px -16px var(--c);backdrop-filter:blur(10px);overflow:hidden;display:flex;flex-direction:column;will-change:transform,opacity;pointer-events:none;}
+.project-card.is-active{pointer-events:auto;box-shadow:0 0 40px -6px var(--c),inset 0 0 26px -12px var(--c);}
+.project-num{font-family:'JetBrains Mono';font-size:.64rem;color:var(--text-dim);letter-spacing:.1em;margin-bottom:.55rem;}
+.project-card h3{font-family:'Space Grotesk';font-weight:500;font-size:.98rem;line-height:1.3;margin-bottom:.5rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.project-highlight{align-self:flex-start;font-family:'JetBrains Mono';font-size:.64rem;color:var(--c);border:1px solid var(--c);padding:.2rem .55rem;border-radius:100px;margin-bottom:.6rem;}
+.project-card p{color:var(--text-dim);font-size:.78rem;line-height:1.55;font-weight:300;margin-bottom:.8rem;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+.project-tools{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.8rem;}
+.project-tool{font-family:'JetBrains Mono';font-size:.6rem;color:var(--text-dim);background:rgba(255,255,255,.04);border:1px solid var(--glass-border);padding:.2rem .5rem;border-radius:100px;}
+.project-link{font-family:'JetBrains Mono';font-size:.72rem;color:var(--cyan);text-decoration:none;}
 .project-link:hover{color:#fff;}
+.card-label{margin-top:auto;padding-top:.7rem;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono';font-size:.64rem;color:var(--c);}
+.card-label i{width:7px;height:7px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);}
+.tree-board{position:absolute;bottom:3vh;left:0;right:0;z-index:7;display:flex;flex-direction:column;align-items:center;gap:.7rem;padding:0 4vw;}
+.tree-board-hint{font-family:'JetBrains Mono';font-size:.66rem;letter-spacing:.15em;color:var(--text-dim);text-transform:uppercase;}
+.tree-tabs{display:flex;gap:.5rem;max-width:100%;overflow-x:auto;padding:.2rem;scrollbar-width:none;}
+.tree-tabs::-webkit-scrollbar{display:none;}
+.tree-tab{flex-shrink:0;display:flex;align-items:center;gap:.45rem;font-family:'JetBrains Mono';font-size:.66rem;color:var(--text-dim);background:rgba(14,14,22,.8);border:1px solid var(--glass-border);padding:.45rem .85rem;border-radius:100px;cursor:pointer;transition:all .25s;}
+.tree-tab i{width:7px;height:7px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);}
+.tree-tab.active{color:var(--text);border-color:var(--c);box-shadow:0 0 16px -6px var(--c);}
+@media (max-width:700px){.project-card{height:320px;}.tree-title{font-size:1rem;}}
 
-/* ---- PROJECT STAGE (vertical scroll-driven 3D helix) ---- */
-.stage-wrap{position:relative;}
-.project-stage{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;perspective:1500px;overflow:hidden;}
-.trunk-canvas{position:absolute;top:0;left:50%;transform:translateX(-50%);width:220px;height:100%;pointer-events:none;z-index:1;}
-.stage-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;}
-.stage-inner .project-card{position:absolute;top:50%;left:50%;width:280px;margin:-190px 0 0 -140px;will-change:transform,opacity;transition:border-color .3s,box-shadow .3s;pointer-events:none;}
-.stage-inner .project-card.is-active{pointer-events:auto;}
-.stage-counter{position:absolute;bottom:6vh;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono';font-size:.72rem;letter-spacing:.15em;color:var(--text-dim);display:flex;align-items:center;gap:.8rem;}
-.stage-counter .bar{width:120px;height:2px;background:var(--glass-border);border-radius:2px;overflow:hidden;}
-.stage-counter .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--magenta));transition:width .1s linear;}
-.stage-hint{position:absolute;top:6vh;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono';font-size:.66rem;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;opacity:.8;}
-@media (max-width:700px){.stage-inner .project-card{width:240px;margin:-180px 0 0 -120px;}}
-
-/* ---- EXPERIENCE ---- */
+/* EXPERIENCE */
 .exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:3vw;}
 @media (max-width:900px){.exp-grid{grid-template-columns:1fr;}}
 .timeline-item{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:1.7rem 1.6rem;margin-bottom:1.3rem;backdrop-filter:blur(10px);transition:transform .3s,border-color .3s;position:relative;overflow:hidden;}
@@ -183,7 +174,7 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .cert-status.active{background:rgba(52,230,168,.15);color:var(--emerald);}
 .cert-status.done{background:rgba(34,224,245,.15);color:var(--cyan);}
 
-/* ---- CERTIFICATES (floating 3D orbit) ---- */
+/* CERTIFICATES */
 .cert-orbit-wrap{position:relative;height:min(560px,72vh);display:flex;align-items:center;justify-content:center;}
 .cert-sphere-canvas{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(560px,88vw);height:min(560px,88vw);pointer-events:none;z-index:1;opacity:.92;}
 .cert-viewport{position:relative;z-index:2;width:100%;height:100%;overflow:hidden;cursor:grab;-webkit-user-select:none;user-select:none;touch-action:pan-y;}
@@ -200,8 +191,6 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 @keyframes certBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
 .cert-hint{position:absolute;bottom:-2.2rem;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono';font-size:.66rem;letter-spacing:.15em;color:var(--text-dim);text-transform:uppercase;opacity:.75;white-space:nowrap;}
 @media (max-width:700px){.cert-slot{width:168px;margin:0 12px;}.cert-float img{height:118px;}}
-
-/* ---- CERT LIGHTBOX ---- */
 .cert-lightbox{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:rgba(3,3,6,.88);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s;padding:6vh 5vw;}
 .cert-lightbox.open{opacity:1;pointer-events:auto;}
 .cert-lightbox-inner{position:relative;max-width:900px;width:100%;max-height:88vh;display:flex;flex-direction:column;align-items:center;}
@@ -213,13 +202,11 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .cert-lightbox-close:hover{border-color:var(--cyan);color:var(--cyan);}
 @media (max-width:700px){.cert-lightbox-close{top:0;right:0;}}
 
-/* ---- FLOATING CONTACT BUTTON ---- */
-.float-contact-btn{position:fixed;right:5vw;bottom:28px;z-index:55;display:flex;align-items:center;gap:.6rem;padding:.85rem 1.3rem;border-radius:100px;background:linear-gradient(120deg,var(--cyan),var(--purple));color:#050508;font-family:'JetBrains Mono';font-size:.75rem;font-weight:600;letter-spacing:.04em;text-decoration:none;box-shadow:0 14px 34px -10px rgba(34,224,245,.5);transition:transform .3s,box-shadow .3s;}
+/* FLOAT BUTTON + CONTACT */
+.float-contact-btn{position:fixed;right:5vw;bottom:28px;z-index:55;display:flex;align-items:center;gap:.6rem;padding:.85rem 1.3rem;border-radius:100px;background:linear-gradient(120deg,var(--cyan),var(--purple));color:#050508;font-family:'JetBrains Mono';font-size:.75rem;font-weight:600;letter-spacing:.04em;text-decoration:none;box-shadow:0 14px 34px -10px rgba(34,224,245,.5);transition:transform .3s;}
 .float-contact-btn:hover{transform:translateY(-3px);}
 .float-contact-btn .dot2{width:7px;height:7px;border-radius:50%;background:#050508;}
 @media (max-width:640px){.float-contact-btn span.fcb-label{display:none;}.float-contact-btn{padding:.9rem;bottom:20px;right:20px;}}
-
-/* ---- CONTACT ---- */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:start;}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
 .location-bar{font-family:'JetBrains Mono';font-size:.75rem;color:var(--text-dim);margin-bottom:1.6rem;}
@@ -240,33 +227,15 @@ h1.hero-name .grad{display:block;background:linear-gradient(135deg,var(--cyan),v
 .r-loc{font-size:.72rem;color:var(--text-dim);margin-top:.1rem;}
 .r-badge{font-family:'JetBrains Mono';font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cyan);background:rgba(34,224,245,.12);padding:.28rem .6rem;border-radius:100px;flex-shrink:0;}
 
-/* ---- MOBILE PERFORMANCE MODE ----
-   backdrop-filter blur is one of the most expensive things a mobile GPU can composite,
-   and it's used a lot across this page. On touch/small devices we swap it for a cheap
-   solid translucent background instead, which looks nearly identical but costs almost nothing. */
+/* MOBILE PERFORMANCE: swap blur for a plain translucent background */
 @media (max-width:900px), (pointer:coarse){
-  header.scrolled,.badge,.panel,.filter-pill,.project-card,.timeline-item,.cert-card,
-  .about-details,.contact-card,.role-pill,.btn-ghost,.cert-float,.cert-lightbox-close{
-    backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
-    background:rgba(14,14,22,.72)!important;
-  }
+  header.scrolled,.badge,.panel,.project-card,.timeline-item,.cert-card,.about-details,.contact-card,.role-pill,.btn-ghost,.cert-float,.cert-lightbox-close{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(14,14,22,.78)!important;}
   .cert-lightbox{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(3,3,6,.95)!important;}
-  .project-card,.stage-inner .project-card{box-shadow:none!important;}
-  .stage-inner .project-card.is-active{box-shadow:0 10px 28px -12px var(--cyan)!important;}
 }
-
 footer{padding:3rem 6vw;text-align:center;color:var(--text-dim);font-family:'JetBrains Mono';font-size:.68rem;letter-spacing:.08em;border-top:1px solid var(--glass-border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;position:relative;z-index:5;}
 footer a{color:var(--cyan);text-decoration:none;}
-
-@media (max-width:900px){
-  nav{display:none;}
-  .hamburger{display:flex;}
-  section{padding:6rem 6vw 4rem;}
-}
-
-@media (prefers-reduced-motion: reduce){
-  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
-}
+@media (max-width:900px){nav{display:none;}.hamburger{display:flex;}section{padding:6rem 6vw 4rem;}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}}
 </style>
 </head>
 <body>
@@ -308,44 +277,40 @@ footer a{color:var(--cyan);text-decoration:none;}
   <a href="#contact" data-sec="contact">06 / CONTACT</a>
 </div>
 
-<a href="#contact" class="float-contact-btn" id="floatContactBtn" aria-label="Jump to contact section">
-  <span class="dot2"></span><span class="fcb-label">Let's Talk</span>
-</a>
+<a href="#contact" class="float-contact-btn" aria-label="Jump to contact section"><span class="dot2"></span><span class="fcb-label">Let's Talk</span></a>
 
 <div class="cert-lightbox" id="certLightbox">
   <div class="cert-lightbox-inner">
     <button class="cert-lightbox-close" id="certLightboxClose" aria-label="Close">✕</button>
     <img id="certLightboxImg" src="" alt="Certificate"/>
-    <div class="cert-lightbox-cap">
-      <h4 id="certLightboxTitle"></h4>
-      <span id="certLightboxMeta"></span>
-    </div>
+    <div class="cert-lightbox-cap"><h4 id="certLightboxTitle"></h4><span id="certLightboxMeta"></span></div>
   </div>
 </div>
 
 <main>
   <section class="hero" id="hero">
     <div class="hero-text">
-      <div class="eyebrow">Available for opportunities</div>
+      <div class="eyebrow">Open to jobs &amp; internships</div>
       <h1 class="hero-name">Akshat<span class="grad">Kesharwani</span></h1>
-      <p class="hero-role"><strong>Data Scientist</strong> · <strong>Data Analyst</strong> · BI Developer</p>
-      <p class="hero-desc">Fresher with hands-on experience across 33 end-to-end projects spanning ML pipelines, Deep Learning, SQL analytics, and BI dashboards. <strong>IIT Indore AI &amp; Data Science certified.</strong> Python · SQL · Power BI · Tableau · TensorFlow. Targeting roles in <strong>Mumbai, Pune, Indore, Bhopal</strong> &amp; Remote.</p>
+      <p class="hero-role"><strong>Data Analyst</strong> · <strong>Data Scientist</strong> · <strong>AI/ML Engineer</strong> · <strong>GenAI &amp; Agentic AI</strong></p>
+      <p class="hero-desc">Fresher with hands-on work across <strong><span class="projCount">80+</span> end-to-end projects</strong> in analytics, machine learning, deep learning, GenAI and AI agents. Python · SQL · Power BI · TensorFlow · LangChain · RAG. <strong>IIT Indore AI &amp; Data Science (in progress).</strong> Looking for full-time roles and internships in <strong>Mumbai, Pune, Indore, Bhopal</strong> &amp; Remote.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View My Work →</a>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=akshatkesharwani12345@gmail.com&su=Opportunity%20for%20Akshat%20Kesharwani" target="_blank" rel="noopener" class="btn btn-ghost">Get In Touch</a>
         <a href="https://wa.me/917697537954?text=Hi%20Akshat%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp Me</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><b>33+</b><span>Projects</span></div>
-        <div class="stat"><b>6</b><span>SQL / AdventureWorks</span></div>
-        <div class="stat"><b>3+</b><span>Certifications</span></div>
+        <div class="stat"><b class="projCount">80+</b><span>Projects</span></div>
+        <div class="stat"><b>6</b><span>Domains</span></div>
+        <div class="stat"><b>12+</b><span>Dashboards</span></div>
+        <div class="stat"><b>8+</b><span>Certifications</span></div>
       </div>
     </div>
     <div class="hero-visual">
       <div class="photo-frame" id="photoFrame">
         <div class="halo"><div class="r r1"></div><div class="r r2"></div><div class="r r3"></div></div>
         <div class="badge badge-status"><span class="p"></span>Open to Work</div>
-        <img src="akshat-photo.png" alt="Akshat Kesharwani" loading="eager" onerror="this.closest('.photo-frame').classList.add('img-fallback');this.style.display='none';"/>
+        <img src="akshat-photo.png" alt="Akshat Kesharwani" loading="eager" onerror="this.style.display='none';"/>
         <div class="badge badge-loc">Sagar, MP<br/>Mumbai · Pune · Indore · Bhopal · Remote</div>
       </div>
     </div>
@@ -358,15 +323,16 @@ footer a{color:var(--cyan);text-decoration:none;}
     </div>
     <div class="about-grid reveal">
       <div class="about-text">
-        <p>I'm a <strong>Data Science &amp; Analytics fresher</strong> with a B.Com from Sagar and a Professional Certification in AI &amp; Data Science from <strong>IIT Indore (via Intellipaat)</strong>. While most commerce students were studying theory, I was building Deep Learning models, ML pipelines, SQL analytics on AdventureWorks, and Power BI dashboards.</p>
-        <p>What makes me different: I combine <strong>Deep Learning &amp; Machine Learning (Python, TensorFlow, Scikit-learn)</strong>, <strong>advanced SQL (T-SQL, SSMS)</strong>, and <strong>Business Intelligence (Power BI, Tableau)</strong> — a rare full-stack combination for a fresher. I don't just build models; I translate data findings into business narratives stakeholders actually understand.</p>
-        <p>I completed a <strong>Data Analytics simulation with Deloitte Australia</strong> and a <strong>Cybersecurity simulation with Mastercard</strong> — exposure to Big Four and Fortune 500 professional standards from day one.</p>
+        <p>I'm a <strong>Data Analyst, Data Scientist and AI/ML fresher</strong> with a B.Com from Sagar (completed May 2026) and an IIT Indore Professional Certification in AI &amp; Data Science (via Intellipaat, in progress). While most commerce students were studying theory, I was building ML models, Power BI dashboards, SQL analytics and LLM apps.</p>
+        <p>My work covers <strong>Machine Learning &amp; Deep Learning (Python, TensorFlow, Scikit-learn)</strong>, <strong>SQL and BI (T-SQL, Power BI, Tableau)</strong> and <strong>GenAI &amp; agentic AI (LLMs, RAG, LangChain, AI agents)</strong>. I turn data findings into business stories that stakeholders can act on.</p>
+        <p>I have interned at Future Interns and InAmigos Foundation, taught as a Data Lab Instructor at IT Job Factory, and completed job simulations with <strong>Deloitte, Mastercard, Tata, JPMorgan Chase, Quantium and Commonwealth Bank</strong>.</p>
       </div>
       <div class="about-details">
         <div class="detail-row"><span class="label">Name</span><span class="value">Akshat Kesharwani</span></div>
         <div class="detail-row"><span class="label">Location</span><span class="value">Sagar, Madhya Pradesh</span></div>
-        <div class="detail-row"><span class="label">Degree</span><span class="value">B.Com — 2026</span></div>
-        <div class="detail-row"><span class="label">Certification</span><span class="value">IIT Indore — AI &amp; Data Science</span></div>
+        <div class="detail-row"><span class="label">Degree</span><span class="value">B.Com — completed May 2026</span></div>
+        <div class="detail-row"><span class="label">Certification</span><span class="value">IIT Indore — AI &amp; Data Science (in progress)</span></div>
+        <div class="detail-row"><span class="label">Looking for</span><span class="value">Jobs &amp; internships</span></div>
         <div class="detail-row"><span class="label">Preferred Cities</span><span class="value">Mumbai · Pune · Indore · Bhopal · Remote</span></div>
         <div class="detail-row"><span class="label">LinkedIn</span><span class="value"><a href="https://www.linkedin.com/in/akshat-kesharwani-b0452b346" target="_blank" rel="noopener">akshat-kesharwani ↗</a></span></div>
         <div class="detail-row"><span class="label">GitHub</span><span class="value"><a href="https://github.com/akshatkesharwani-info" target="_blank" rel="noopener">akshatkesharwani-info ↗</a></span></div>
@@ -379,15 +345,17 @@ footer a{color:var(--cyan);text-decoration:none;}
     <div class="reveal">
       <div class="kicker">Capabilities</div>
       <h2>Technical Arsenal</h2>
-      <p class="section-sub">Tools and technologies I use to extract insights, build models, and deliver business value.</p>
+      <p class="section-sub">Tools and technologies I use to extract insights, build models and ship AI apps.</p>
     </div>
     <div class="skills-grid reveal">
-      <div class="panel"><div class="skill-icon">🐍</div><h4>Programming &amp; Query</h4><div class="tags"><span class="tag">Python (Advanced)</span><span class="tag">SQL (T-SQL / SSMS)</span><span class="tag">Advanced Excel</span><span class="tag">Power Query</span><span class="tag">MySQL</span></div></div>
-      <div class="panel"><div class="skill-icon">🤖</div><h4>Machine Learning</h4><div class="tags"><span class="tag">Linear Regression</span><span class="tag">Random Forest</span><span class="tag">XGBoost</span><span class="tag">K-Means</span><span class="tag">Logistic Regression</span><span class="tag">Decision Tree</span><span class="tag">SVM</span><span class="tag">Ensemble Methods</span></div></div>
-      <div class="panel"><div class="skill-icon">🧠</div><h4>Deep Learning</h4><div class="tags"><span class="tag">ANN</span><span class="tag">CNN</span><span class="tag">RNN</span><span class="tag">LSTM</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">NLP</span></div></div>
-      <div class="panel"><div class="skill-icon">📊</div><h4>BI &amp; Visualization</h4><div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Tableau</span><span class="tag">Looker Studio</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div></div>
-      <div class="panel"><div class="skill-icon">🔬</div><h4>Data Science Libraries</h4><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">SciPy</span><span class="tag">Statsmodels</span><span class="tag">Prophet</span></div></div>
-      <div class="panel"><div class="skill-icon">📈</div><h4>Analytics Competencies</h4><div class="tags"><span class="tag">EDA</span><span class="tag">A/B Testing</span><span class="tag">Feature Engineering</span><span class="tag">Churn Analysis</span><span class="tag">RFM Segmentation</span><span class="tag">Cohort Analysis</span></div></div>
+      <div class="panel"><div class="skill-icon">🐍</div><h4>Programming &amp; Databases</h4><div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">NLTK</span><span class="tag">SQL (T-SQL / SSMS)</span><span class="tag">MySQL</span><span class="tag">Advanced Excel</span><span class="tag">VBA</span><span class="tag">Power Query</span></div></div>
+      <div class="panel"><div class="skill-icon">🤖</div><h4>Machine Learning</h4><div class="tags"><span class="tag">Scikit-learn</span><span class="tag">Linear / Logistic Regression</span><span class="tag">Decision Tree</span><span class="tag">Random Forest</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">Gradient Boosting</span><span class="tag">SVM</span><span class="tag">K-Means</span><span class="tag">DBSCAN</span></div></div>
+      <div class="panel"><div class="skill-icon">🧠</div><h4>Deep Learning &amp; NLP</h4><div class="tags"><span class="tag">ANN</span><span class="tag">CNN</span><span class="tag">RNN</span><span class="tag">LSTM</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Computer Vision</span><span class="tag">NLP</span><span class="tag">Sentiment Analysis</span><span class="tag">Transformers</span></div></div>
+      <div class="panel"><div class="skill-icon">✨</div><h4>GenAI &amp; Agentic AI</h4><div class="tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Prompt Engineering</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Hugging Face</span><span class="tag">ChromaDB</span><span class="tag">FAISS</span><span class="tag">AI Agents</span><span class="tag">Multi-Agent Systems</span></div></div>
+      <div class="panel"><div class="skill-icon">📊</div><h4>BI &amp; Visualization</h4><div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Tableau</span><span class="tag">Looker Studio</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Data Visualization</span></div></div>
+      <div class="panel"><div class="skill-icon">📈</div><h4>Statistics &amp; Forecasting</h4><div class="tags"><span class="tag">Hypothesis Testing</span><span class="tag">t-test / ANOVA / ADF</span><span class="tag">A/B Testing</span><span class="tag">ARIMA</span><span class="tag">Prophet</span><span class="tag">Exponential Smoothing</span><span class="tag">Statsmodels</span></div></div>
+      <div class="panel"><div class="skill-icon">⚙️</div><h4>MLOps, Cloud &amp; Pipelines</h4><div class="tags"><span class="tag">MLOps</span><span class="tag">MLflow</span><span class="tag">Azure Cloud Services</span><span class="tag">ETL &amp; Data Pipelines</span><span class="tag">Data Quality Validation</span><span class="tag">Git &amp; GitHub</span></div></div>
+      <div class="panel"><div class="skill-icon">🎯</div><h4>Analytics Competencies</h4><div class="tags"><span class="tag">EDA</span><span class="tag">Data Cleaning</span><span class="tag">Feature Engineering</span><span class="tag">Churn Analysis</span><span class="tag">RFM Segmentation</span><span class="tag">Cohort Analysis</span></div></div>
     </div>
   </section>
 
@@ -395,13 +363,11 @@ footer a{color:var(--cyan);text-decoration:none;}
     <div class="reveal">
       <div class="kicker">Verified</div>
       <h2>Certifications &amp; Job Simulations</h2>
-      <p class="section-sub">Industry job simulations completed with Tata, Commonwealth Bank, Quantium, JPMorgan Chase, Deloitte Australia &amp; Mastercard. Drag the cards, or let them float on their own — tap any card for the full certificate.</p>
+      <p class="section-sub">Industry job simulations with Tata, Commonwealth Bank, Quantium, JPMorgan Chase, Deloitte Australia and Mastercard. Drag the cards, or let them float on their own. Tap any card for the full certificate.</p>
     </div>
     <div class="cert-orbit-wrap reveal">
       <canvas id="certSphereCanvas" class="cert-sphere-canvas"></canvas>
-      <div class="cert-viewport" id="certViewport">
-        <div class="cert-track" id="certTrack"></div>
-      </div>
+      <div class="cert-viewport" id="certViewport"><div class="cert-track" id="certTrack"></div></div>
       <div class="cert-hint">⟷ drag to explore · tap to view</div>
     </div>
   </section>
@@ -410,18 +376,18 @@ footer a{color:var(--cyan);text-decoration:none;}
     <div class="reveal">
       <div class="kicker">Work</div>
       <h2>Projects</h2>
-      <p class="section-sub">33 end-to-end projects on GitHub — machine learning, deep learning, SQL analytics on AdventureWorks, BI dashboards, and forecasting, all independently built.</p>
+      <p class="section-sub"><span class="projCount">80+</span> end-to-end projects on GitHub, grouped into 6 domain trees. Scroll to spin the trees and drag sideways to switch between them. Each card links to its repo.</p>
     </div>
-    <div class="filter-bar reveal" id="filterBar"></div>
-    <p class="filter-count reveal" id="filterCount"></p>
   </section>
 
   <div class="stage-wrap" id="stageWrap">
-    <div class="project-stage">
+    <div class="project-stage" id="projectStage">
       <div class="stage-hint">Scroll to rotate ↓</div>
-      <canvas id="trunkCanvas" class="trunk-canvas"></canvas>
-      <div class="stage-inner" id="stageInner"></div>
-      <div class="stage-counter"><span id="stageCounterText">01 / 33</span><span class="bar"><i id="stageBar" style="width:0%"></i></span></div>
+      <div class="tree-rail" id="treeRail"></div>
+      <div class="tree-board">
+        <div class="tree-board-hint">⟷ drag sideways · more project trees on both sides</div>
+        <div class="tree-tabs" id="treeTabs"></div>
+      </div>
     </div>
   </div>
 
@@ -429,44 +395,63 @@ footer a{color:var(--cyan);text-decoration:none;}
     <div class="reveal">
       <div class="kicker">Background</div>
       <h2>Experience &amp; Credentials</h2>
-      <p class="section-sub">Real-world internship, industry simulations, and academic credentials that prove I'm ready from day one.</p>
+      <p class="section-sub">Internships, teaching, industry simulations and academic credentials.</p>
     </div>
     <div class="exp-grid reveal">
       <div class="timeline">
+        <div class="timeline-item">
+          <div class="exp-date">May 2026 – Jun 2026 · Onsite</div>
+          <div class="exp-role">Data Lab Instructor</div>
+          <div class="exp-company">IT Job Factory</div>
+          <ul class="exp-points">
+            <li>Turned data analyst theory (SQL, Python, statistics) into hands-on project work for students</li>
+            <li>Mentored students through end-to-end analytics projects, from data cleaning to dashboard reporting</li>
+            <li>Bridged classroom theory and real execution for aspiring data analysts</li>
+          </ul>
+        </div>
         <div class="timeline-item">
           <div class="exp-date">March 2026 · Remote</div>
           <div class="exp-role">Data Science &amp; Analytics Intern</div>
           <div class="exp-company">Future Interns</div>
           <ul class="exp-points">
-            <li>End-to-end EDA and data cleaning on real-world structured datasets</li>
-            <li>Designed 3+ interactive Power BI &amp; Excel KPI dashboards for stakeholders</li>
-            <li>Applied Random Forest, Linear Regression, Decision Tree for predictive analytics</li>
-            <li>K-Means Clustering for customer segmentation and marketing strategy</li>
-            <li>Delivered business reports translating data findings into non-technical narratives</li>
+            <li>Cleaned and analyzed 5+ datasets with Python (Pandas, NumPy) and SQL</li>
+            <li>Built and evaluated 8 predictive ML models (Random Forest, XGBoost, Logistic Regression) with 85-95% accuracy</li>
+            <li>Published 12+ Power BI and Excel dashboards, driving 20% stakeholder adoption of revenue-growth recommendations</li>
+            <li>Automated recurring reports with Power Query and VBA, saving 5+ hours per week</li>
           </ul>
         </div>
         <div class="timeline-item">
-          <div class="exp-date">2023 – 2026 · Sagar, MP</div>
+          <div class="exp-date">August 2025 · Remote</div>
+          <div class="exp-role">AI Data Analyst Intern</div>
+          <div class="exp-company">InAmigos Foundation</div>
+          <ul class="exp-points">
+            <li>Researched NGO operations, program impact and sector trends to support strategic recommendations</li>
+            <li>Analyzed AI adoption trends in the nonprofit sector and compiled structured reports</li>
+            <li>Organized volunteer opportunity datasets to improve access and usability for internal teams</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="exp-date">2023 – May 2026 · Sagar, MP</div>
           <div class="exp-role">Bachelor of Commerce (B.Com)</div>
-          <div class="exp-company">Pt. Deendayal Upadhyay Govt. Arts &amp; Commerce College</div>
+          <div class="exp-company">Pt. Deendayal Upadhyay Govt. College</div>
           <ul class="exp-points">
             <li>Accountancy, Business Economics, Financial Management, Statistics</li>
-            <li>Strong analytical and quantitative foundation applied to data science projects</li>
+            <li>A strong quantitative base that I apply in my data projects</li>
           </ul>
         </div>
       </div>
       <div class="cert-grid">
-        <div class="cert-card"><div class="cert-icon blue">🎓</div><div class="cert-text"><h4>AI &amp; Data Science Certification</h4><span>IIT Indore · via Intellipaat · 2025–2026</span></div><span class="cert-status active">In Progress</span></div>
-        <div class="cert-card"><div class="cert-icon green">📊</div><div class="cert-text"><h4>Data Analytics Job Simulation</h4><span>Deloitte Australia · via Forage</span></div><span class="cert-status done">Completed</span></div>
-        <div class="cert-card"><div class="cert-icon orange">🔐</div><div class="cert-text"><h4>Cybersecurity Virtual Experience</h4><span>Mastercard · via Forage</span></div><span class="cert-status done">Completed</span></div>
+        <div class="cert-card"><div class="cert-icon blue">🎓</div><div class="cert-text"><h4>AI &amp; Data Science Certification</h4><span>IIT Indore · DRISHTI CPS · via Intellipaat</span></div><span class="cert-status active">In Progress</span></div>
+        <div class="cert-card"><div class="cert-icon green">🤖</div><div class="cert-text"><h4>Data Analyst &amp; GenAI Certification</h4><span>Jobaaj</span></div><span class="cert-status done">Certified</span></div>
+        <div class="cert-card"><div class="cert-icon orange">✨</div><div class="cert-text"><h4>GenAI Powered Data Analytics</h4><span>Tata · via Forage · Jul 2026</span></div><span class="cert-status done">Completed</span></div>
         <div class="timeline-item" style="margin-top:.3rem;">
           <div class="exp-date">Key Highlights</div>
           <div class="exp-role">What Sets Me Apart</div>
           <ul class="exp-points">
-            <li>IIT Indore certified as a B.Com student — cross-disciplinary, self-driven learner</li>
-            <li>Deep Learning (TensorFlow, Keras) + ML (Python) + SQL + BI (Power BI, Tableau) — rare combo</li>
-            <li>33 independent end-to-end projects, including 6 SQL projects on AdventureWorksDW2019</li>
-            <li>Deloitte + Mastercard simulation exposure — Big Four &amp; Fortune 500 standards</li>
+            <li>One portfolio across analytics, ML, deep learning, GenAI and agentic AI</li>
+            <li>Six T-SQL projects on AdventureWorksDW2019 plus Power BI dashboards</li>
+            <li>Internships plus teaching experience, with 6+ industry job simulations</li>
+            <li>Commerce background that adds business sense to technical work</li>
           </ul>
         </div>
       </div>
@@ -481,7 +466,7 @@ footer a{color:var(--cyan);text-decoration:none;}
     <div class="contact-grid reveal">
       <div class="contact-info">
         <div class="location-bar">Sagar, Madhya Pradesh · Open to Relocation</div>
-        <p>I'm actively looking for <strong>Data Analyst</strong> and <strong>Data Scientist</strong> roles — full-time, internship, remote, or hybrid. If you're an HR, recruiter, or hiring manager, I'd love to connect.</p>
+        <p>I'm looking for <strong>Data Analyst</strong>, <strong>Data Scientist</strong>, <strong>AI/ML</strong>, <strong>GenAI</strong> and <strong>Agentic AI</strong> roles, both full-time jobs and internships, remote or hybrid. If you're an HR, recruiter or hiring manager, I'd love to connect.</p>
         <div class="contact-cards">
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=akshatkesharwani12345@gmail.com&su=Opportunity%20for%20Akshat%20Kesharwani" target="_blank" rel="noopener" class="contact-card"><div class="contact-icon">📧</div><div><div class="c-label">Email (opens Gmail)</div><div class="c-value">akshatkesharwani12345@gmail.com</div></div></a>
           <a href="tel:+917697537954" class="contact-card"><div class="contact-icon">📱</div><div><div class="c-label">Phone</div><div class="c-value">+91 76975 37954</div></div></a>
@@ -494,12 +479,13 @@ footer a{color:var(--cyan);text-decoration:none;}
       </div>
       <div class="contact-right">
         <h3>Roles I'm targeting</h3>
-        <p>Fresher with full-stack data skills — from raw data and SQL to boardroom-ready dashboards and deep learning models.</p>
+        <p>Jobs and internships, from raw data and SQL to dashboards, ML models, LLM apps and AI agents.</p>
         <div class="open-roles">
           <div class="role-pill"><div><div class="r-title">Data Analyst</div><div class="r-loc">Mumbai · Pune · Indore · Bhopal · Remote · Hybrid</div></div><span class="r-badge">Open</span></div>
           <div class="role-pill"><div><div class="r-title">Data Scientist</div><div class="r-loc">Mumbai · Pune · Indore · Bhopal · Remote · Hybrid</div></div><span class="r-badge">Open</span></div>
-          <div class="role-pill"><div><div class="r-title">BI Developer / Analyst</div><div class="r-loc">Mumbai · Pune · Indore · Bhopal · Remote</div></div><span class="r-badge">Open</span></div>
-          <div class="role-pill"><div><div class="r-title">ML / Analytics Intern</div><div class="r-loc">Any Location · Remote</div></div><span class="r-badge">Open</span></div>
+          <div class="role-pill"><div><div class="r-title">AI / ML Engineer</div><div class="r-loc">Mumbai · Pune · Indore · Bhopal · Remote · Hybrid</div></div><span class="r-badge">Open</span></div>
+          <div class="role-pill"><div><div class="r-title">GenAI / Agentic AI Engineer</div><div class="r-loc">Remote · Hybrid · Any location</div></div><span class="r-badge">Open</span></div>
+          <div class="role-pill"><div><div class="r-title">Data / ML / AI Intern</div><div class="r-loc">Any location · Remote</div></div><span class="r-badge">Open</span></div>
         </div>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=akshatkesharwani12345@gmail.com&su=Opportunity%20for%20Akshat%20Kesharwani" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;">Reach Out Now</a>
       </div>
@@ -518,593 +504,509 @@ footer a{color:var(--cyan);text-decoration:none;}
 window.addEventListener('DOMContentLoaded', initSite);
 function initSite(){
 
-/* ---------- mobile / low-power detection ----------
-   Used everywhere below to dial back particle counts, canvas resolution,
-   and animation loops -- the things that were causing lag on phones and
-   mid-range laptops while looking fine on a high-end desktop GPU. */
-const isMobile = window.matchMedia('(max-width:900px)').matches || window.matchMedia('(pointer:coarse)').matches;
-const isLowEnd = isMobile && (navigator.hardwareConcurrency||4)<=4;
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var isMobile = window.matchMedia('(max-width:900px)').matches || window.matchMedia('(pointer:coarse)').matches;
+var isLowEnd = isMobile && (navigator.hardwareConcurrency || 4) <= 4;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var resizeTimer = null;
 
-/* ---------- custom cursor (desktop w/ mouse only, and only after JS confirms it works) ---------- */
-const cur=document.getElementById('cursor');
-if(window.matchMedia('(pointer:fine)').matches && !prefersReducedMotion){
+/* cursor */
+var cur = document.getElementById('cursor');
+if(window.matchMedia('(pointer:fine)').matches && !reduceMotion){
   document.body.classList.add('custom-cursor-on');
-  let curX=0,curY=0;
-  window.addEventListener('mousemove',e=>{ curX=e.clientX; curY=e.clientY; cur.style.left=curX+'px'; cur.style.top=curY+'px'; }, {passive:true});
+  window.addEventListener('mousemove', function(e){ cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; }, {passive:true});
 }
 function bindCursorTargets(){
   if(!document.body.classList.contains('custom-cursor-on')) return;
-  document.querySelectorAll('a,.panel,.project-card,.btn,.filter-pill,.cert-card,.cert-float,.timeline-item,.contact-card,.role-pill').forEach(el=>{
+  document.querySelectorAll('a,.panel,.project-card,.btn,.tree-tab,.cert-card,.cert-float,.timeline-item,.contact-card,.role-pill').forEach(function(el){
     if(el.dataset.cursorBound) return;
-    el.dataset.cursorBound='1';
-    el.addEventListener('mouseenter',()=>{cur.style.width='42px';cur.style.height='42px';cur.style.borderColor='#ff2fb0';});
-    el.addEventListener('mouseleave',()=>{cur.style.width='20px';cur.style.height='20px';cur.style.borderColor='#22e0f5';});
+    el.dataset.cursorBound = '1';
+    el.addEventListener('mouseenter', function(){ cur.style.width='42px'; cur.style.height='42px'; cur.style.borderColor='#ff2fb0'; });
+    el.addEventListener('mouseleave', function(){ cur.style.width='20px'; cur.style.height='20px'; cur.style.borderColor='#22e0f5'; });
   });
 }
 
-/* ---------- mobile menu ---------- */
-const hamburgerBtn=document.getElementById('hamburgerBtn');
-const mobileMenu=document.getElementById('mobileMenu');
-const mobileMenuClose=document.getElementById('mobileMenuClose');
-if(hamburgerBtn){
-  hamburgerBtn.addEventListener('click', ()=>mobileMenu.classList.add('open'));
-  mobileMenuClose.addEventListener('click', ()=>mobileMenu.classList.remove('open'));
-  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>mobileMenu.classList.remove('open')));
-}
+/* mobile menu */
+var mobileMenu = document.getElementById('mobileMenu');
+document.getElementById('hamburgerBtn').addEventListener('click', function(){ mobileMenu.classList.add('open'); });
+document.getElementById('mobileMenuClose').addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+mobileMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mobileMenu.classList.remove('open'); }); });
 
-/* ---------- header scroll state ---------- */
-const header=document.getElementById('siteHeader');
-window.addEventListener('scroll',()=>header.classList.toggle('scrolled', window.scrollY>40), {passive:true});
+/* header + hud + reveal */
+var header = document.getElementById('siteHeader');
+window.addEventListener('scroll', function(){ header.classList.toggle('scrolled', window.scrollY > 40); }, {passive:true});
+var hudLinks = document.querySelectorAll('.hud a');
+var secObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){ if(en.isIntersecting){ hudLinks.forEach(function(l){ l.classList.toggle('active', l.dataset.sec === en.target.id); }); } });
+}, {threshold:.4});
+['about','skills','certificates','projects','experience','contact'].forEach(function(id){ var el = document.getElementById(id); if(el) secObserver.observe(el); });
+var revealObserver = new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting) en.target.classList.add('in'); }); }, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
 
-/* ---------- HUD active section ---------- */
-const hudLinks=document.querySelectorAll('.hud a');
-const secObserver=new IntersectionObserver((entries)=>{
-  entries.forEach(en=>{ if(en.isIntersecting){ hudLinks.forEach(l=>l.classList.toggle('active', l.dataset.sec===en.target.id)); } });
-},{threshold:.4});
-['about','skills','certificates','projects','experience','contact'].forEach(id=>{const el=document.getElementById(id); if(el) secObserver.observe(el);});
-
-/* ---------- scroll reveal ---------- */
-const io=new IntersectionObserver((entries)=>{entries.forEach(en=>{if(en.isIntersecting)en.target.classList.add('in');});},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* ---------- hero photo tilt ---------- */
-const heroSection=document.getElementById('hero');
-const photoFrame=document.getElementById('photoFrame');
-if(window.matchMedia('(pointer: fine)').matches && !prefersReducedMotion){
-  heroSection.addEventListener('mousemove',(e)=>{
-    const rect=heroSection.getBoundingClientRect();
-    const x=(e.clientX-rect.left)/rect.width-0.5, y=(e.clientY-rect.top)/rect.height-0.5;
-    photoFrame.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg)`;
+/* hero photo tilt */
+var heroSection = document.getElementById('hero');
+var photoFrame = document.getElementById('photoFrame');
+if(window.matchMedia('(pointer: fine)').matches && !reduceMotion){
+  heroSection.addEventListener('mousemove', function(e){
+    var rect = heroSection.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width - 0.5;
+    var y = (e.clientY - rect.top) / rect.height - 0.5;
+    photoFrame.style.transform = 'rotateY(' + (x*10) + 'deg) rotateX(' + (-y*10) + 'deg)';
   }, {passive:true});
-  heroSection.addEventListener('mouseleave',()=>{photoFrame.style.transform='';});
+  heroSection.addEventListener('mouseleave', function(){ photoFrame.style.transform = ''; });
 }
 
-/* ================= PROJECT DATA (unchanged from source) ================= */
-const GH="https://github.com/akshatkesharwani-info/";
-const projects=[
-  { repo:"car-price-prediction", title:"Car Price Prediction (Random Forest)", cat:"Machine Learning", highlight:"R² = 0.87", desc:"Built and compared 3 ML models on 10,000+ records. Random Forest achieved a 34% improvement over baseline after hyperparameter tuning.", tools:["Python","Scikit-learn","XGBoost","Random Forest"] },
-  { repo:"Car-price-prediction-linear-regression-", title:"Car Price Prediction (Linear Regression)", cat:"Machine Learning", highlight:"R² = 0.78", desc:"Linear regression baseline for car price estimation with full EDA, feature scaling, and model interpretation.", tools:["Python","Scikit-learn","Linear Regression","Seaborn"] },
-  { repo:"House_price_predection", title:"House Price Prediction", cat:"Machine Learning", desc:"Regression model estimating house prices from structural and locality features, with EDA-driven feature selection.", tools:["Python","Pandas","Scikit-learn","Regression"] },
-  { repo:"flight-booking-analysis", title:"Flight Price Analysis & Prediction", cat:"Machine Learning", desc:"Analyzed 10+ airlines for seasonal pricing patterns. Engineered features like booking lead time and built regression models with cross-validation.", tools:["Python","Pandas","Scikit-learn","Seaborn"] },
-  { repo:"crop-yield-prediction", title:"Crop Yield Prediction", cat:"Machine Learning", desc:"Predictive model estimating agricultural yield from soil, weather, and crop-type features for planning support.", tools:["Python","Scikit-learn","Pandas","EDA"] },
-  { repo:"churn-retention-analysis", title:"Customer Churn Analysis", cat:"Machine Learning", highlight:"82% Accuracy", desc:"Analyzed 7,000+ customer records to predict churn. K-Means clustering segmented customers; Power BI dashboard for real-time KPI tracking.", tools:["Python","K-Means","Logistic Regression","Power BI"] },
-  { repo:"ecommerce-customer-churn-prediction-ensemble", title:"E-commerce Churn Prediction (Ensemble)", cat:"Machine Learning", highlight:"AUC 0.84", desc:"Ensemble classifier combining multiple models to predict e-commerce customer churn, with feature importance analysis for retention strategy.", tools:["Python","XGBoost","Random Forest","Ensemble"] },
-  { repo:"employee-attrition-prediction-random-forest", title:"Employee Attrition Prediction", cat:"Machine Learning", desc:"Random Forest model predicting employee attrition risk from HR data, supporting proactive retention planning.", tools:["Python","Random Forest","Scikit-learn","HR Analytics"] },
-  { repo:"bank-loan-default-prediction-decision-tree", title:"Bank Loan Default Prediction", cat:"Machine Learning", highlight:"AUC-ROC 0.75", desc:"Decision tree classifier predicting loan default risk from applicant financial history and credit features.", tools:["Python","Decision Tree","Scikit-learn","Risk Modeling"] },
-  { repo:"diabetes-prediction-logistic-regression", title:"Diabetes Prediction (Logistic Regression)", cat:"Machine Learning", desc:"Logistic regression classifier predicting diabetes onset from clinical health indicators.", tools:["Python","Logistic Regression","Scikit-learn"] },
-  { repo:"Diabetes_Risk_Factor_Analysis", title:"Diabetes Risk Factor Analysis", cat:"Machine Learning", highlight:"84% Accuracy", desc:"Classification model predicting diabetes risk using health metrics, with feature importance analysis to surface the strongest risk factors.", tools:["Python","Scikit-learn","Logistic Regression","Seaborn"] },
-  { repo:"student-performance-dropout-prediction", title:"Student Performance & Dropout Prediction", cat:"Machine Learning", highlight:"80% Recall", desc:"Predicted student dropout risk using academic and demographic data. Feature engineering and ensemble methods for early intervention.", tools:["Python","Scikit-learn","XGBoost","Feature Engineering"] },
-  { repo:"predictive-maintenance-manufacturing", title:"Manufacturing Predictive Maintenance", cat:"Machine Learning", highlight:"79% Precision", desc:"Built an ML model to predict equipment failures ahead of time, reducing unplanned downtime.", tools:["Python","Random Forest","Scikit-learn","XGBoost"] },
-  { repo:"multi-domain-analytics-capstone", title:"Multi-Domain Analytics Capstone", cat:"Machine Learning", desc:"Comprehensive capstone combining EDA, ML, and BI across multiple datasets (including diamond pricing and Titanic survival), delivered as an end-to-end pipeline with dashboards.", tools:["Python","Scikit-learn","Power BI","Pandas"] },
-  { repo:"cnn-image-classifier-fashion-mnist", title:"Fashion MNIST Image Classifier", cat:"Deep Learning", highlight:"96% Accuracy", desc:"Built a CNN for clothing image classification, with data augmentation and regularization to control overfitting.", tools:["Python","TensorFlow","Keras","CNN"] },
-  { repo:"stock-price-direction-prediction-ann", title:"Stock Price Direction Prediction", cat:"Deep Learning", highlight:"78% Precision", desc:"ANN/LSTM model predicting next-period stock price direction from historical OHLCV data.", tools:["Python","TensorFlow","LSTM","Pandas"] },
-  { repo:"twitter-sentiment-analysis-nlp-ann", title:"Twitter Sentiment Analysis", cat:"Deep Learning", highlight:"85% F1-Score", desc:"NLP model classifying tweets as positive, negative, or neutral using TF-IDF vectorization with an ANN classifier.", tools:["Python","NLP","TensorFlow","NLTK"] },
-  { repo:"customer-segmentation-kmeans-clustering", title:"Customer Segmentation Analysis", cat:"Clustering", highlight:"5 Distinct Segments", desc:"Applied K-Means clustering to segment customers and built targeted marketing strategies for each segment.", tools:["Python","K-Means","PCA","Pandas"] },
-  { repo:"covid19-analysis-project", title:"COVID-19 Analysis & Forecasting", cat:"Time-Series", desc:"Time-series analysis on global COVID datasets. Forecasted case trajectories using Facebook Prophet, validated with MAPE.", tools:["Python","Pandas","Facebook Prophet","Matplotlib"] },
-  { repo:"economic-indicators-time-series-analysis", title:"Economic Indicators Time-Series Analysis", cat:"Time-Series", desc:"Time-series exploration of macroeconomic indicators, identifying trend and seasonality patterns over multi-year data.", tools:["Python","Pandas","Statsmodels","Matplotlib"] },
-  { repo:"energy-consumption-forecasting", title:"Energy Consumption Forecasting", cat:"Time-Series", highlight:"MAPE = 8.2%", desc:"Forecasted electricity consumption using time-series models, comparing Prophet and ARIMA for optimal prediction.", tools:["Python","Facebook Prophet","ARIMA","Pandas"] },
-  { repo:"uber-ride-demand-forecasting", title:"Uber Ride Demand Forecasting", cat:"Time-Series", desc:"Forecasting model predicting ride demand by time and location to support supply planning.", tools:["Python","Pandas","Time-Series","Forecasting"] },
-  { repo:"Stock-Market-Analysis", title:"Stock Market Analysis", cat:"Time-Series", highlight:"Trend & Pattern Detection", desc:"Analyzed historical stock data for trends, volatility patterns, and technical indicators, EDA-focused with visualizations.", tools:["Python","Pandas","Matplotlib","TA-Lib"] },
-  { repo:"Sales-Performance-Analysis", title:"Sales Performance Analytics", cat:"SQL & BI", highlight:"18% Revenue Insight", desc:"Multi-region sales data modeled in Power BI with a star schema. 5+ DAX measures feeding a drill-through C-suite dashboard.", tools:["Power BI","Advanced Excel","DAX","Data Modeling"] },
-  { repo:"Retail-sales-performance-analysis", title:"Retail Sales Performance Analysis", cat:"SQL & BI", desc:"Retail sales trend and performance analysis across categories and regions, surfaced through interactive dashboards.", tools:["SQL","Power BI","Excel","EDA"] },
-  { repo:"marketing-funnel-analysis", title:"Marketing Funnel Analysis", cat:"SQL & BI", highlight:"15–20% Uplift", desc:"Mapped the full B2C funnel (Awareness → Purchase). Pinpointed a 62% drop-off at Consideration → Intent, with 5 actionable recommendations.", tools:["Excel","Power BI","Funnel Analytics","Cohort Analysis"] },
-  { repo:"NBA-player-performance-analysis", title:"NBA Player Performance Analysis", cat:"SQL & BI", highlight:"Advanced Metrics", desc:"Analyzed NBA player statistics across seasons, with Power BI dashboards for performance tracking and comparison.", tools:["Python","Power BI","Advanced Excel","DAX"] },
-  { repo:"AdventureWorks-Internet-Sales-Analysis", title:"AdventureWorks: Internet Sales Analysis", cat:"SQL & BI", desc:"T-SQL analysis of AdventureWorksDW2019 internet sales — revenue trends, product performance, and customer purchase patterns using window functions and CTEs.", tools:["SQL Server","T-SQL","SSMS","Window Functions"] },
-  { repo:"AdventureWorks-Customer-Segmentation-RFM", title:"AdventureWorks: Customer RFM Segmentation", cat:"SQL & BI", desc:"RFM (Recency, Frequency, Monetary) customer segmentation built entirely in T-SQL on AdventureWorksDW2019 to identify high-value customer tiers.", tools:["SQL Server","T-SQL","SSMS","RFM Analysis"] },
-  { repo:"AdventureWorks-Reseller-Channel-Analysis", title:"AdventureWorks: Reseller Sales Analysis", cat:"SQL & BI", desc:"Reseller channel performance analysis — sales by reseller tier, region, and category — using advanced T-SQL joins and aggregations.", tools:["SQL Server","T-SQL","SSMS","Aggregation"] },
-  { repo:"AdventureWorks-Employee-HR-Analytics", title:"AdventureWorks: HR Analytics", cat:"SQL & BI", desc:"HR analytics on employee tenure, department distribution, and pay-rate trends using T-SQL queries against AdventureWorksDW2019.", tools:["SQL Server","T-SQL","SSMS","HR Analytics"] },
-  { repo:"AdventureWorks-Inventory-Supply-Chain", title:"AdventureWorks: Inventory & Supply Chain", cat:"SQL & BI", desc:"Inventory and supply chain analysis — stock levels, reorder patterns, and warehouse performance — via T-SQL on AdventureWorksDW2019.", tools:["SQL Server","T-SQL","SSMS","Supply Chain"] },
-  { repo:"AdventureWorks-CallCenter-Analytics", title:"AdventureWorks: Call Center Operations", cat:"SQL & BI", desc:"Call center operations analysis — call volume, wait times, and issue resolution trends — queried directly from AdventureWorksDW2019.", tools:["SQL Server","T-SQL","SSMS","Operations Analytics"] },
-];
+/* ================= PROJECT TREES ================= */
+var GH = 'https://github.com/akshatkesharwani-info/';
+var domains = [{"k": "da", "n": "Data Analytics", "c": "#ff3b5c"}, {"k": "ds", "n": "Data Science", "c": "#3b8bff"}, {"k": "ml", "n": "Machine Learning", "c": "#2ee59d"}, {"k": "dl", "n": "Deep Learning & NLP", "c": "#a66bff"}, {"k": "ai", "n": "GenAI & LLM Apps", "c": "#ff4fc3"}, {"k": "ag", "n": "Agentic AI", "c": "#ffb02e"}];
+var projects = [{"r": "AdventureWorks-Internet-Sales-Analysis", "t": "AdventureWorks: Internet Sales", "d": "da", "h": "$29.4M revenue", "x": "T-SQL sales dashboard queries with window functions and CTEs. Bikes bring 96% of revenue, with a Q4 spike.", "g": ["SQL Server", "T-SQL", "CTEs"]}, {"r": "AdventureWorks-Customer-Segmentation-RFM", "t": "AdventureWorks: Customer RFM", "d": "da", "h": "Top 10% = ~50% revenue", "x": "RFM segmentation of 18,000+ customers using NTILE and CTEs into Champions, Loyal, At-Risk and Lost.", "g": ["SQL Server", "T-SQL", "RFM"]}, {"r": "AdventureWorks-Reseller-Channel-Analysis", "t": "AdventureWorks: Reseller Channel", "d": "da", "h": "73% from resellers", "x": "Ranks resellers, reps and territories with joins and RANK(). The reseller channel is about 73% of revenue.", "g": ["SQL Server", "T-SQL", "RANK()"]}, {"r": "AdventureWorks-Employee-HR-Analytics", "t": "AdventureWorks: HR Analytics", "d": "da", "h": "Quota 0-200%+", "x": "Headcount, diversity and quota attainment analysis using self-joins, CTEs and window functions.", "g": ["SQL Server", "T-SQL", "HR Analytics"]}, {"r": "AdventureWorks-Inventory-Supply-Chain", "t": "AdventureWorks: Inventory & Supply", "d": "da", "h": "Reorder alert list", "x": "Flags products below 3x safety stock and builds a reorder alert list with CASE logic and turnover rates.", "g": ["SQL Server", "T-SQL", "Supply Chain"]}, {"r": "AdventureWorks-CallCenter-Analytics", "t": "AdventureWorks: Call Center", "d": "da", "h": "AM shift = 45%+ calls", "x": "Rolling 3-month call metrics by shift. Midnight has the weakest service grade.", "g": ["SQL Server", "T-SQL", "Window Functions"]}, {"r": "marketing-funnel-analysis", "t": "Marketing Funnel Analysis", "d": "da", "h": "47.4% conversion", "x": "Bank marketing funnel and conversion analysis in Python and Power BI. Call duration affects conversion.", "g": ["Python", "Power BI", "Funnel"]}, {"r": "churn-retention-analysis", "t": "Telco Churn Analysis", "d": "da", "h": "Month-to-month churns more", "x": "Telco churn analysis in Python and Power BI. High charges and month-to-month plans raise churn.", "g": ["Python", "Power BI", "Churn"]}, {"r": "Sales-Performance-Analysis", "t": "Sales Performance Dashboard", "d": "da", "h": "Q4 = peak sales", "x": "Superstore sales and profit analysis with a Power BI dashboard. Technology earns the most profit.", "g": ["Python", "Power BI", "Dashboard"]}, {"r": "Retail-sales-performance-analysis", "t": "Retail Sales Performance", "d": "da", "h": "4-year sales review", "x": "Four-year retail analysis with a 6-panel dashboard and Excel export. Discounts go with lower profit.", "g": ["Python", "Pandas", "Excel"]}, {"r": "Stock-Market-Analysis", "t": "Stock Market EDA", "d": "da", "h": "S&P 500 trends", "x": "EDA of S&P 500 stocks covering trends, volatility and correlation. AAPL and MSFT grew strongly.", "g": ["Python", "Pandas", "SciPy"]}, {"r": "Diabetes_Risk_Factor_Analysis", "t": "Diabetes Risk Factor Analysis", "d": "da", "h": "Glucose = top factor", "x": "EDA on glucose, BMI, blood pressure and age. Glucose correlates most with the outcome.", "g": ["Python", "EDA", "Seaborn"]}, {"r": "uber-ride-demand-forecasting", "t": "Uber Ride Demand Forecasting", "d": "ds", "h": "R2 ~0.75-0.80", "x": "Forecasts ride demand by hour and location with time features and Random Forest. Fri and Sat evenings peak.", "g": ["Python", "Random Forest", "Time Features"]}, {"r": "energy-consumption-forecasting", "t": "Energy Consumption Forecasting", "d": "ds", "h": "8-12% better MAPE", "x": "Forecasts daily power demand from PJM data with ADF tests and decomposition. Beats a rolling-mean baseline.", "g": ["Python", "ADF Test", "Forecasting"]}, {"r": "economic-indicators-time-series-analysis", "t": "Economic Indicators Time Series", "d": "ds", "h": "ARIMA(1,0,1)", "x": "30 years of GDP data with ADF tests, decomposition and an ARIMA forecast. India averages about 6.5% growth.", "g": ["Python", "ARIMA", "Statsmodels"]}, {"r": "covid19-analysis-project", "t": "COVID-19 Analysis", "d": "ds", "h": "Global trend analysis", "x": "Explores global case and recovery trends. Cases grew exponentially while recovery improved over time.", "g": ["Python", "Pandas", "Matplotlib"]}, {"r": "customer-segmentation-kmeans-clustering", "t": "Customer Segmentation (K-Means)", "d": "ds", "h": "k = 5 segments", "x": "Segments mall customers with K-Means, Elbow and Silhouette scores. Finds a high-income, high-spending VIP group.", "g": ["Python", "K-Means", "Silhouette"]}, {"r": "NBA-player-performance-analysis", "t": "NBA Player Performance", "d": "ds", "h": "4 player archetypes", "x": "Predicts points per game with Linear Regression and Random Forest, then clusters play styles with K-Means.", "g": ["Python", "Random Forest", "K-Means"]}, {"r": "car-price-prediction", "t": "Car Price Prediction (Decision Tree)", "d": "ml", "h": "R2 = 0.91", "x": "Decision Tree regressor on year, mileage and fuel type. Newer cars cost more, mileage lowers price.", "g": ["Python", "Decision Tree", "Regression"]}, {"r": "Car-price-prediction-linear-regression-", "t": "Car Price Prediction (Linear)", "d": "ml", "h": "MAE / RMSE / R2", "x": "Interpretable regression with EDA and feature engineering, scored on MAE, RMSE and R2.", "g": ["Python", "Linear Regression", "EDA"]}, {"r": "House_price_predection", "t": "House Price Prediction", "d": "ml", "h": "R2 ~0.82", "x": "Linear Regression on the top 10 correlated features. Overall quality and living area lead.", "g": ["Python", "Linear Regression", "Feature Selection"]}, {"r": "flight-booking-analysis", "t": "Flight Price Prediction", "d": "ml", "h": "R2 0.99 (overfit flagged)", "x": "Random Forest flight price model with an 80/20 split. The README flags the very high R2 as possible overfitting.", "g": ["Python", "Random Forest", "Regression"]}, {"r": "crop-yield-prediction", "t": "Crop Yield Prediction", "d": "ml", "h": "RF beats Linear Reg.", "x": "Predicts crop yield with an engineered rainfall x temperature feature. Pesticide use and temperature lead.", "g": ["Python", "Random Forest", "Feature Engineering"]}, {"r": "employee-attrition-prediction-random-forest", "t": "Employee Attrition Prediction", "d": "ml", "h": "OverTime = 3x attrition", "x": "Random Forest on IBM HR data ranks the top 15 attrition drivers and beats a single tree by ~8% AUC.", "g": ["Python", "Random Forest", "HR Analytics"]}, {"r": "bank-loan-default-prediction-decision-tree", "t": "Bank Loan Default Prediction", "d": "ml", "h": "Best depth 5-7", "x": "Depth-tuned Decision Tree on Give Me Some Credit data. Revolving credit use is the top predictor.", "g": ["Python", "Decision Tree", "Cross-Validation"]}, {"r": "diabetes-prediction-logistic-regression", "t": "Diabetes Prediction", "d": "ml", "h": "AUC 0.83", "x": "Logistic Regression screening model with about 78% accuracy. Glucose is the strongest factor.", "g": ["Python", "Logistic Regression", "ROC-AUC"]}, {"r": "ecommerce-customer-churn-prediction-ensemble", "t": "E-commerce Churn (Ensemble)", "d": "ml", "h": "+2-3% AUC vs single", "x": "Soft-voting ensemble of Logistic Regression, Decision Tree and Random Forest with 5-fold CV.", "g": ["Python", "Ensemble", "Cross-Validation"]}, {"r": "student-performance-dropout-prediction", "t": "Student Dropout Prediction", "d": "ml", "h": "Weighted F1 ~0.70-0.75", "x": "t-tests plus Logistic Regression and a shallow tree to build early-warning rules for at-risk students.", "g": ["Python", "Logistic Regression", "Decision Tree"]}, {"r": "predictive-maintenance-manufacturing", "t": "Predictive Maintenance", "d": "ml", "h": "~85% recall", "x": "Predicts machine failure from AI4I sensor data with Random Forest and ANN, tuned for recall.", "g": ["Python", "Random Forest", "ANN"]}, {"r": "multi-domain-analytics-capstone", "t": "Multi-Domain Capstone", "d": "ml", "h": "Titanic AUC 0.854", "x": "Diamond pricing regression, Titanic RF vs ANN, and restaurant K-Means segments in one capstone.", "g": ["Python", "Random Forest", "K-Means"]}, {"r": "cnn-image-classifier-fashion-mnist", "t": "Fashion MNIST CNN", "d": "dl", "h": "91% test accuracy", "x": "Two-layer CNN with dropout and early stopping. Shirt is the hardest class to tell from T-shirt.", "g": ["TensorFlow", "Keras", "CNN"]}, {"r": "twitter-sentiment-analysis-nlp-ann", "t": "Twitter Sentiment (NLP + ANN)", "d": "dl", "h": "~0.85 AUC", "x": "Text cleaning, stemming and TF-IDF, then Logistic Regression vs ANN. Both reach about 0.85 AUC.", "g": ["Python", "NLP", "TF-IDF", "ANN"]}, {"r": "stock-price-direction-prediction-ann", "t": "Stock Direction (ANN)", "d": "dl", "h": "AUC 0.52-0.56", "x": "Tests if an ANN can call next-day direction. Results are barely above random, in line with market efficiency.", "g": ["TensorFlow", "ANN", "Technical Indicators"]}, {"r": "urbankart-sales-data-cleaning", "t": "UrbanKart Sales Data Cleaning", "d": "da", "h": "Clean sales data", "x": "Cleans and prepares UrbanKart sales data with Python so it is ready for analysis.", "g": ["Python", "Pandas", "Data Cleaning"]}, {"r": "E-commerce-Revenue-Analytics", "t": "E-commerce Revenue Analytics", "d": "da", "h": "", "x": "Revenue analysis for an e-commerce business.", "g": ["Python", "Analytics"]}, {"r": "Marketing-Campaign-Attribution", "t": "Marketing Campaign Attribution", "d": "da", "h": "", "x": "Attributes conversions and revenue to marketing campaigns.", "g": ["Python", "Analytics"]}, {"r": "Customer-Churn-Analysis", "t": "Customer Churn Analysis", "d": "da", "h": "", "x": "Analysis of customer churn patterns and retention.", "g": ["Python", "Analytics"]}, {"r": "Sales-Forecasting-System", "t": "Sales Forecasting System", "d": "ds", "h": "", "x": "Forecasts future sales from historical data.", "g": ["Python", "Data Science"]}, {"r": "Market-Risk-VaR-value-at-Risk-Estimation", "t": "Market Risk: VaR Estimation", "d": "ds", "h": "", "x": "Estimates market risk with Value at Risk.", "g": ["Python", "Data Science"]}, {"r": "Portfolio-Optimization-Model--Markowitz-ML-Enhanced-Return-Forecasting-", "t": "Portfolio Optimization (Markowitz + ML)", "d": "ds", "h": "", "x": "Markowitz portfolio optimization with ML-enhanced return forecasts.", "g": ["Python", "Data Science"]}, {"r": "-Customer-Segmentation-Engine", "t": "Customer Segmentation Engine", "d": "ds", "h": "", "x": "Groups customers into segments for targeting.", "g": ["Python", "Data Science"]}, {"r": "-Customer-Churn-Predictor", "t": "Customer Churn Predictor", "d": "ml", "h": "", "x": "Predicts which customers are likely to churn.", "g": ["Python", "Machine Learning"]}, {"r": "Customer-Churn-Revenue-at-Risk-Model-with-MLOps-Deployment--MLflow-", "t": "Churn Revenue-at-Risk with MLOps (MLflow)", "d": "ml", "h": "", "x": "Churn model that sizes revenue at risk, tracked and deployed with MLflow.", "g": ["Python", "Machine Learning", "MLflow"]}, {"r": "Fraud-Anomaly-Detection", "t": "Fraud Anomaly Detection", "d": "ml", "h": "", "x": "Detects unusual transactions that may be fraud.", "g": ["Python", "Machine Learning"]}, {"r": "Fraud-Detection-on-Transaction-Data-with-Real-Time-Scoring-Pipeline", "t": "Fraud Detection with Real-Time Scoring", "d": "ml", "h": "", "x": "Fraud model on transaction data with a real-time scoring pipeline.", "g": ["Python", "Machine Learning"]}, {"r": "Credit-Default-Prediction-Model-with-SHAP-Explainability", "t": "Credit Default Prediction with SHAP", "d": "ml", "h": "", "x": "Credit default model with SHAP explanations.", "g": ["Python", "Machine Learning", "SHAP"]}, {"r": "Loan-Mortgage-Default-Prediction-with-Regulatory-Compliant-Explainability-Report", "t": "Loan & Mortgage Default with Explainability Report", "d": "ml", "h": "", "x": "Default prediction with a regulatory-style explainability report.", "g": ["Python", "Machine Learning"]}, {"r": "FICO-Style-Credit-Score-Bucketing-Interest-Rate-Risk-Model", "t": "FICO-Style Credit Score Bucketing", "d": "ml", "h": "", "x": "Credit score buckets linked to interest-rate risk.", "g": ["Python", "Machine Learning"]}, {"r": "Algorithmic-Trading-ignal-Backtester", "t": "Algorithmic Trading Signal Backtester", "d": "ml", "h": "", "x": "Backtests algorithmic trading signals on historical prices.", "g": ["Python", "Machine Learning"]}, {"r": "Anomaly-Detection-on-Internal-Audit-Transaction-Logs", "t": "Anomaly Detection on Audit Logs", "d": "ml", "h": "", "x": "Finds anomalies in internal audit transaction logs.", "g": ["Python", "Machine Learning"]}, {"r": "Production-AI-Monitoring-Dashboard", "t": "Production AI Monitoring Dashboard", "d": "ml", "h": "", "x": "Dashboard for monitoring a model running in production.", "g": ["Python", "Machine Learning"]}, {"r": "Stock-Price-Direction-Prediction-Using-LSTM-ANN", "t": "Stock Direction with LSTM + ANN", "d": "dl", "h": "", "x": "Predicts stock price direction with LSTM and ANN models.", "g": ["Python", "Deep Learning"]}, {"r": "Ask-Your-Data-Assistant-Text-to-SQL-", "t": "Ask Your Data: Text-to-SQL", "d": "ai", "h": "", "x": "Turns plain-English questions into SQL answers.", "g": ["Python", "LLM", "SQL"]}, {"r": "Personal-Chat-Assistant", "t": "Personal Chat Assistant", "d": "ai", "h": "", "x": "LLM-powered personal chat assistant.", "g": ["Python", "LLM"]}, {"r": "Meeting-Notes-Auto-Summarizer", "t": "Meeting Notes Auto-Summarizer", "d": "ai", "h": "", "x": "Summarizes meeting notes into key points.", "g": ["Python", "LLM"]}, {"r": "Meeting-insights-Generator", "t": "Meeting Insights Generator", "d": "ai", "h": "", "x": "Pulls insights and decisions out of meetings.", "g": ["Python", "LLM"]}, {"r": "Knowledge-Base-Retrieval-System--RAG-", "t": "Knowledge Base Retrieval (RAG)", "d": "ai", "h": "", "x": "Answers questions from a knowledge base with RAG.", "g": ["Python", "LLM", "RAG"]}, {"r": "Company-Knowledge-Assistant--RAG-", "t": "Company Knowledge Assistant (RAG)", "d": "ai", "h": "", "x": "Company document assistant built with RAG.", "g": ["Python", "LLM", "RAG"]}, {"r": "Empathetic-Response-AI", "t": "Empathetic Response AI", "d": "ai", "h": "", "x": "Writes empathetic replies to user messages.", "g": ["Python", "LLM"]}, {"r": "AI-Powered-Code-Suggester", "t": "AI-Powered Code Suggester", "d": "ai", "h": "", "x": "Suggests code with an LLM.", "g": ["Python", "LLM"]}, {"r": "Domain-Specific-Q-A-Bot", "t": "Domain-Specific Q&A Bot", "d": "ai", "h": "", "x": "Q&A bot focused on one domain.", "g": ["Python", "LLM"]}, {"r": "Financial-Report-Research-Assistant", "t": "Financial Report Research Assistant", "d": "ai", "h": "", "x": "Answers research questions from financial reports.", "g": ["Python", "LLM"]}, {"r": "Data-Dictionary-Copilot", "t": "Data Dictionary Copilot", "d": "ai", "h": "", "x": "Explains tables and columns from a data dictionary.", "g": ["Python", "LLM"]}, {"r": "Customer-Review-Analyzer", "t": "Customer Review Analyzer", "d": "ai", "h": "", "x": "Analyzes customer reviews for themes and sentiment.", "g": ["Python", "LLM"]}, {"r": "Customer-Review-intelligence", "t": "Customer Review Intelligence", "d": "ai", "h": "", "x": "Turns customer reviews into insights.", "g": ["Python", "LLM"]}, {"r": "Review-Intelligence-Engine", "t": "Review Intelligence Engine", "d": "ai", "h": "", "x": "Engine that mines product reviews for insights.", "g": ["Python", "LLM"]}, {"r": "Resume-to-Job-Matching-Tool", "t": "Resume-to-Job Matching Tool", "d": "ai", "h": "", "x": "Matches resumes to job descriptions.", "g": ["Python", "LLM"]}, {"r": "Support-Ticket-Classifier", "t": "Support Ticket Classifier", "d": "ai", "h": "", "x": "Classifies customer support tickets.", "g": ["Python", "LLM"]}, {"r": "Earnings-Guidance-vs.-Actual-Variance-Analyzer", "t": "Earnings Guidance vs Actual Variance", "d": "ai", "h": "", "x": "Compares company guidance with actual results.", "g": ["Python", "LLM"]}, {"r": "Internal-Knowledge-Base-Copilot-for-a-Consulting-Firm", "t": "Knowledge Base Copilot for Consulting", "d": "ai", "h": "", "x": "Internal knowledge copilot for a consulting firm.", "g": ["Python", "LLM"]}, {"r": "AI-Powered-KYC-AML--Document-Verification-Pipeline", "t": "AI KYC/AML Document Verification", "d": "ai", "h": "", "x": "Pipeline for KYC/AML document verification.", "g": ["Python", "LLM"]}, {"r": "AI-Contract-Covenant-Review-Tool", "t": "AI Contract Covenant Review", "d": "ai", "h": "", "x": "Reviews contract covenants with an LLM.", "g": ["Python", "LLM"]}, {"r": "Natural-Language-to-SQL-Analys-tAssistant-for-Trading-Data", "t": "NL-to-SQL Assistant for Trading Data", "d": "ai", "h": "", "x": "Ask trading data questions in plain English.", "g": ["Python", "LLM", "SQL"]}, {"r": "Automated-Audit-Workpaper-Summarizer", "t": "Audit Workpaper Summarizer", "d": "ai", "h": "", "x": "Summarizes audit workpapers automatically.", "g": ["Python", "LLM"]}, {"r": "AI-Driven-Client-Portfolio-Report-Generator", "t": "Client Portfolio Report Generator", "d": "ai", "h": "", "x": "Generates client portfolio reports with AI.", "g": ["Python", "LLM"]}, {"r": "RAG-Chatbot-over-Financial-Regulations--Basel-III-SEC-Filings-", "t": "RAG Chatbot: Basel III & SEC Filings", "d": "ai", "h": "", "x": "RAG chatbot over financial regulations and filings.", "g": ["Python", "LLM", "RAG"]}, {"r": "AI-Earnings-Call-Summarizer-Sentiment-Extractor", "t": "Earnings Call Summarizer & Sentiment", "d": "ai", "h": "", "x": "Summarizes earnings calls and extracts sentiment.", "g": ["Python", "LLM"]}, {"r": "AI-Sales-Forecasting-Explanation", "t": "AI Sales Forecast Explainer", "d": "ai", "h": "", "x": "Explains sales forecasts in plain language.", "g": ["Python", "LLM"]}, {"r": "AI-SQL-Query-Generator-Data-Explainer", "t": "AI SQL Generator & Data Explainer", "d": "ai", "h": "", "x": "Generates SQL and explains the results.", "g": ["Python", "LLM", "SQL"]}, {"r": "AI-Business-Analyst-Assistant", "t": "AI Business Analyst Assistant", "d": "ai", "h": "", "x": "Assistant that answers business analysis questions.", "g": ["Python", "LLM"]}, {"r": "AI-Customer-Churn-Intelligence-System", "t": "AI Customer Churn Intelligence", "d": "ai", "h": "", "x": "Combines churn analysis with AI explanations.", "g": ["Python", "LLM"]}, {"r": "Data-Analyst-Agent", "t": "Data Analyst Agent", "d": "ag", "h": "", "x": "AI agent that analyzes data on request.", "g": ["Python", "AI Agents"]}, {"r": "Multi-Agent-Customer-Support-System", "t": "Multi-Agent Customer Support", "d": "ag", "h": "", "x": "Several AI agents working together on support.", "g": ["Python", "AI Agents"]}, {"r": "Agent-M-A-Due-Diligence-Assistant", "t": "M&A Due Diligence Agent", "d": "ag", "h": "", "x": "Agent that helps with M&A due diligence.", "g": ["Python", "AI Agents"]}];
 
-const filterBar=document.getElementById('filterBar');
-const filterCount=document.getElementById('filterCount');
-const stageWrap=document.getElementById('stageWrap');
-const stageInner=document.getElementById('stageInner');
-const stageCounterText=document.getElementById('stageCounterText');
-const stageBar=document.getElementById('stageBar');
-const categories=["All", ...Array.from(new Set(projects.map(p=>p.cat)))];
-let activeCat="All";
-let cardEls=[];
-let visibleProjects=[];
+document.querySelectorAll('.projCount').forEach(function(el){ el.textContent = projects.length; });
 
-const SPACING_VH=52;      // vertical distance between projects along the trunk
-const ANGLE_STEP=54;      // rotateY degrees between adjacent projects (spiral feel)
-const RADIUS=340;         // orbit radius from the trunk
-const VISIBLE_RANGE=3.4;  // how many cards away from center stay rendered
+var stageWrap = document.getElementById('stageWrap');
+var stage = document.getElementById('projectStage');
+var rail = document.getElementById('treeRail');
+var tabsBox = document.getElementById('treeTabs');
 
-function renderFilters(){
-  filterBar.innerHTML=categories.map(cat=>{
-    const count=cat==="All"?projects.length:projects.filter(p=>p.cat===cat).length;
-    return `<button class="filter-pill${cat===activeCat?' active':''}" data-cat="${cat}">${cat} (${count})</button>`;
-  }).join('');
-  filterBar.querySelectorAll('.filter-pill').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      activeCat=btn.dataset.cat;
-      renderFilters();
-      buildStage();
-      window.scrollTo({top:stageWrap.offsetTop-10, behavior:'smooth'});
-    });
-  });
-}
-
-function buildStage(){
-  visibleProjects = activeCat==="All" ? projects : projects.filter(p=>p.cat===activeCat);
-  filterCount.innerHTML=`Showing <strong>${visibleProjects.length}</strong> of <strong>${projects.length}</strong> projects`;
-
-  stageWrap.style.height = `${(visibleProjects.length*SPACING_VH)+100}vh`;
-
-  stageInner.innerHTML = visibleProjects.map((p,i)=>`
-    <div class="project-card" data-index="${i}">
-      <div class="project-num">0${(i+1)<10?i+1:i+1}</div>
-      <div class="project-type">${p.cat}</div>
-      <h3>${p.title}</h3>
-      ${p.highlight?`<div class="project-highlight">${p.highlight}</div>`:''}
-      <p>${p.desc}</p>
-      <div class="project-tools">${p.tools.map(t=>`<span class="project-tool">${t}</span>`).join('')}</div>
-      <a href="${GH}${p.repo}" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
-    </div>
-  `).join('');
-  cardEls = Array.from(stageInner.querySelectorAll('.project-card'));
-  bindCursorTargets();
-  updateStage();
-}
-
-function updateStage(){
-  if(!visibleProjects.length) return;
-  const rect=stageWrap.getBoundingClientRect();
-  const scrollable = rect.height - window.innerHeight;
-  const progress = scrollable>0 ? Math.min(Math.max(-rect.top/scrollable,0),1) : 0;
-  const continuousIndex = progress*(visibleProjects.length-1);
-
-  cardEls.forEach((el,i)=>{
-    const delta = i-continuousIndex;
-    const absDelta = Math.abs(delta);
-    if(absDelta>VISIBLE_RANGE){ el.style.display='none'; el.classList.remove('is-active'); return; }
-    el.style.display='block';
-    const angle = delta*ANGLE_STEP;
-    const y = delta*(SPACING_VH*window.innerHeight/100*0.62);
-    const z = -absDelta*90;
-    const scale = Math.max(1-absDelta*0.14, 0.42);
-    const opacity = Math.max(1-absDelta*0.3, 0.08);
-    el.style.transform = `translateY(${y}px) rotateY(${angle}deg) translateZ(${RADIUS+z}px) scale(${scale})`;
-    el.style.opacity = opacity;
-    el.style.zIndex = 100-Math.round(absDelta*10);
-    el.classList.toggle('is-active', absDelta<0.5);
-    const color = ['#22e0f5','#ff2fb0','#34e6a8','#7c3aed'][i%4];
-    el.style.boxShadow = absDelta<0.5 ? `0 25px 70px -20px ${color}` : 'none';
-    el.style.borderColor = absDelta<0.5 ? color : 'var(--glass-border)';
-  });
-
-  const nearest = Math.round(Math.min(Math.max(continuousIndex,0),visibleProjects.length-1));
-  stageCounterText.textContent = `${String(nearest+1).padStart(2,'0')} / ${String(visibleProjects.length).padStart(2,'0')}`;
-  stageBar.style.width = `${progress*100}%`;
-}
-
-let stageTicking=false;
-window.addEventListener('scroll', ()=>{
-  if(!stageTicking){
-    requestAnimationFrame(()=>{ updateStage(); stageTicking=false; });
-    stageTicking=true;
-  }
-}, {passive:true});
-let resizeTimer=null;
-window.addEventListener('resize', ()=>{
-  clearTimeout(resizeTimer);
-  resizeTimer=setTimeout(()=>{ buildStage(); sizeTrunk(); }, 150);
+var trees = [];
+var maxCount = 0;
+domains.forEach(function(dm, ti){
+  var list = projects.filter(function(p){ return p.d === dm.k; });
+  if(list.length > maxCount) maxCount = list.length;
+  trees.push({dm: dm, list: list, slot: null, cards: [], canvas: null, count: null});
 });
 
-renderFilters();
-buildStage();
+var SPACING_VH = 34;
+stageWrap.style.height = (maxCount * SPACING_VH + 100) + 'vh';
 
-/* ---------- animated flowing energy trunk (canvas), capped at ~30fps ---------- */
-const trunkCanvas=document.getElementById('trunkCanvas');
-const tctx=trunkCanvas.getContext('2d');
-function sizeTrunk(){
-  const stageEl=document.querySelector('.project-stage');
-  const w=220, h=(stageEl && stageEl.clientHeight) || window.innerHeight;
-  const dpr=isMobile?1:Math.min(devicePixelRatio,1.5);
-  trunkCanvas.width=w*dpr; trunkCanvas.height=h*dpr;
-  trunkCanvas.style.width=w+'px'; trunkCanvas.style.height=h+'px';
-  tctx.setTransform(dpr,0,0,dpr,0,0);
-}
-sizeTrunk();
-
-const strandColors = isMobile ? ['#22e0f5','#7c3aed','#ff2fb0'] : ['#22e0f5','#7c3aed','#ff2fb0','#34e6a8'];
-const strands=strandColors.map(c=>({
-  color:c,
-  freq:0.006+Math.random()*0.007,
-  speed:0.5+Math.random()*0.5,
-  amp:22+Math.random()*34,
-  phase:Math.random()*Math.PI*2,
-  drift:0.12+Math.random()*0.2
-}));
-const pulses=strandColors.slice(0,3).map((c)=>({color:c, offset:Math.random(), speed:0.05+Math.random()*0.05}));
-
-const trunkStep = isMobile ? 16 : 8;
-let trunkVisible=true;
-const trunkSectionObs=new IntersectionObserver(es=>{es.forEach(e=>{trunkVisible=e.isIntersecting;});},{threshold:0});
-trunkSectionObs.observe(stageWrap);
-
-function drawTrunk(t){
-  const dpr=isMobile?1:Math.min(devicePixelRatio,1.5);
-  const w=trunkCanvas.width/dpr, h=trunkCanvas.height/dpr;
-  tctx.clearRect(0,0,w,h);
-  const cx=w/2;
-  tctx.globalCompositeOperation='lighter';
-  strands.forEach(s=>{
-    tctx.beginPath();
-    for(let y=0;y<=h;y+=trunkStep){
-      const x=cx + Math.sin(y*s.freq + t*s.speed + s.phase)*s.amp + Math.sin(y*0.003+t*s.drift)*14;
-      if(y===0) tctx.moveTo(x,y); else tctx.lineTo(x,y);
-    }
-    tctx.strokeStyle=s.color;
-    tctx.globalAlpha=0.32;
-    tctx.lineWidth=1.3;
-    tctx.stroke();
-  });
-  pulses.forEach(p=>{
-    const py=((t*p.speed*0.15 + p.offset)%1)*h;
-    const x=cx + Math.sin(py*0.008+t*0.6)*24;
-    const grad=tctx.createRadialGradient(x,py,0,x,py,24);
-    grad.addColorStop(0, p.color);
-    grad.addColorStop(1, 'transparent');
-    tctx.globalAlpha=0.85;
-    tctx.fillStyle=grad;
-    tctx.beginPath();
-    tctx.arc(x,py,24,0,Math.PI*2);
-    tctx.fill();
-  });
-  tctx.globalCompositeOperation='source-over';
-  tctx.globalAlpha=1;
-}
-let lastTrunkFrame=0;
-const TRUNK_FPS = isMobile ? 20 : 30;
-function trunkLoop(ts){
-  if(!document.hidden && trunkVisible){
-    if(ts-lastTrunkFrame >= 1000/TRUNK_FPS){ lastTrunkFrame=ts; drawTrunk(ts/1000); }
+var SLOT_W = 460, CARD_W = 250, RADIUS = 170, SLOT_GAP = 400;
+function setSizes(){
+  if(isMobile){
+    SLOT_W = Math.min(window.innerWidth * 0.94, 380);
+    CARD_W = 212; RADIUS = 105;
+    SLOT_GAP = window.innerWidth * 0.9;
+  } else {
+    SLOT_W = 460; CARD_W = 250; RADIUS = 170; SLOT_GAP = 400;
   }
-  requestAnimationFrame(trunkLoop);
+  stage.style.setProperty('--sw', SLOT_W + 'px');
+  stage.style.setProperty('--cw', CARD_W + 'px');
 }
-requestAnimationFrame(trunkLoop);
+setSizes();
 
-/* ================= THREE.JS PARTICLE BACKGROUND (lightweight, capped fps) ================= */
-const bgCanvas=document.getElementById('bg-canvas');
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 0.1, 100);
-camera.position.set(0,0,7);
-const renderer=new THREE.WebGLRenderer({canvas:bgCanvas, antialias:false, alpha:true, powerPreference:'high-performance'});
-const bgDPR=isMobile?1:Math.min(devicePixelRatio,1.5);
-renderer.setPixelRatio(bgDPR);
-renderer.setSize(innerWidth, innerHeight);
-function resizeAll(){
-  renderer.setPixelRatio(isMobile?1:Math.min(devicePixelRatio,1.5));
-  renderer.setSize(innerWidth, innerHeight);
-  camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
+trees.forEach(function(tr, ti){
+  var slot = document.createElement('div');
+  slot.className = 'tree-slot';
+  slot.style.setProperty('--c', tr.dm.c);
+  var html = '<div class="tree-title">' + tr.dm.n + '<span class="tcount">' + tr.list.length + ' projects</span></div>';
+  html += '<canvas class="trunk"></canvas><div class="tree-inner">';
+  tr.list.forEach(function(p, i){
+    var tools = p.g.slice(0, 4).map(function(t){ return '<span class="project-tool">' + t + '</span>'; }).join('');
+    html += '<div class="project-card">';
+    html += '<div class="project-num">' + String(i + 1).padStart(2, '0') + ' / ' + String(tr.list.length).padStart(2, '0') + '</div>';
+    html += '<h3>' + p.t + '</h3>';
+    if(p.h) html += '<div class="project-highlight">' + p.h + '</div>';
+    html += '<p>' + p.x + '</p>';
+    html += '<div class="project-tools">' + tools + '</div>';
+    html += '<a class="project-link" href="' + GH + p.r + '" target="_blank" rel="noopener">View on GitHub ↗</a>';
+    html += '<div class="card-label"><i></i>' + tr.dm.n + '</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+  slot.innerHTML = html;
+  rail.appendChild(slot);
+  tr.slot = slot;
+  tr.canvas = slot.querySelector('.trunk');
+  tr.count = slot.querySelector('.tcount');
+  tr.cards = Array.prototype.slice.call(slot.querySelectorAll('.project-card'));
+
+  var tab = document.createElement('button');
+  tab.className = 'tree-tab';
+  tab.style.setProperty('--c', tr.dm.c);
+  tab.innerHTML = '<i></i>' + tr.dm.n + ' (' + tr.list.length + ')';
+  tab.addEventListener('click', function(){ target = ti; });
+  tabsBox.appendChild(tab);
+  tr.tab = tab;
+});
+bindCursorTargets();
+
+var pos = 0;        // which tree is in the middle (can be a decimal while dragging)
+var target = 0;
+var dragging = false, dragMoved = false, dragStartX = 0, dragStartPos = 0;
+var progress = 0;
+var lastActive = -1;
+
+function updateCards(){
+  var H = window.innerHeight;
+  trees.forEach(function(tr, ti){
+    var far = Math.abs(ti - pos);
+    if(far > 1.6){ tr.slot.style.visibility = 'hidden'; return; }
+    tr.slot.style.visibility = 'visible';
+    var n = tr.list.length;
+    var cont = progress * (n - 1);
+    var isCenter = far < 0.5;
+    tr.cards.forEach(function(el, i){
+      var delta = i - cont;
+      var ad = Math.abs(delta);
+      if(ad > 3.4){ el.style.display = 'none'; return; }
+      el.style.display = 'flex';
+      var y = delta * H * 0.3;
+      var z = -ad * 80;
+      var scale = Math.max(1 - ad * 0.14, 0.42);
+      el.style.transform = 'translateY(' + y + 'px) rotateY(' + (delta * 54) + 'deg) translateZ(' + (RADIUS + z) + 'px) scale(' + scale + ')';
+      el.style.opacity = Math.max(1 - ad * 0.3, 0.08);
+      el.style.zIndex = 100 - Math.round(ad * 10);
+      el.classList.toggle('is-active', isCenter && ad < 0.5);
+    });
+    var near = Math.round(Math.min(Math.max(cont, 0), n - 1));
+    tr.count.textContent = String(near + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
+  });
 }
-window.addEventListener('resize', ()=>{ clearTimeout(resizeTimer); resizeTimer=setTimeout(resizeAll,150); });
 
-// Particle count cut way down from the original (was up to 1800) -- this was the single
-// biggest cause of lag, since every particle was re-computed with a sqrt() every frame.
-const PCOUNT = isLowEnd ? 220 : (isMobile ? 380 : Math.min(700, Math.floor(innerWidth*innerHeight/1900)));
-const positions=new Float32Array(PCOUNT*3);
-const colors=new Float32Array(PCOUNT*3);
-const speeds=new Float32Array(PCOUNT);
-const palette=[new THREE.Color(0x22e0f5), new THREE.Color(0xff2fb0), new THREE.Color(0x34e6a8), new THREE.Color(0x7c3aed)];
-for(let i=0;i<PCOUNT;i++){
-  const r=6+Math.random()*11;
-  const theta=Math.random()*Math.PI*2;
-  const phi=Math.acos((Math.random()*2)-1);
-  positions[i*3]=r*Math.sin(phi)*Math.cos(theta);
-  positions[i*3+1]=r*Math.sin(phi)*Math.sin(theta)*0.6;
-  positions[i*3+2]=r*Math.cos(phi)*0.6 - 3;
-  const c=palette[Math.floor(Math.random()*palette.length)];
-  colors[i*3]=c.r; colors[i*3+1]=c.g; colors[i*3+2]=c.b;
-  speeds[i]=0.2+Math.random()*0.6;
+function updateProgress(){
+  var rect = stageWrap.getBoundingClientRect();
+  var scrollable = rect.height - window.innerHeight;
+  progress = scrollable > 0 ? Math.min(Math.max(-rect.top / scrollable, 0), 1) : 0;
+  updateCards();
 }
-const pGeo=new THREE.BufferGeometry();
-pGeo.setAttribute('position', new THREE.BufferAttribute(positions,3));
-pGeo.setAttribute('color', new THREE.BufferAttribute(colors,3));
-const pMat=new THREE.PointsMaterial({size:0.05, vertexColors:true, transparent:true, opacity:.85, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true});
-const points=new THREE.Points(pGeo, pMat);
-scene.add(points);
-
-const mouse=new THREE.Vector2(0,0), targetMouse=new THREE.Vector2(0,0);
-window.addEventListener('mousemove', e=>{
-  targetMouse.x=(e.clientX/innerWidth)*2-1;
-  targetMouse.y=-(e.clientY/innerHeight)*2+1;
+var scrollTick = false;
+window.addEventListener('scroll', function(){
+  if(!scrollTick){ requestAnimationFrame(function(){ updateProgress(); scrollTick = false; }); scrollTick = true; }
 }, {passive:true});
-const raycaster=new THREE.Raycaster();
-const mousePlane=new THREE.Plane(new THREE.Vector3(0,0,1), 0);
-const mouseWorld=new THREE.Vector3();
-const clock=new THREE.Clock();
-const skipMouseInteraction = isMobile; // avoids per-particle sqrt() work on touch devices
 
-const BG_FPS = isMobile ? 24 : 45;
-let lastBgFrame=0;
-function animate(ts){
-  requestAnimationFrame(animate);
+function placeSlots(){
+  trees.forEach(function(tr, ti){
+    var d = ti - pos;
+    var ad = Math.abs(d);
+    var scale = Math.max(1 - ad * 0.38, 0.35);
+    var op = Math.max(1 - ad * 0.6, 0);
+    tr.slot.style.transform = 'translateX(' + (d * SLOT_GAP) + 'px) scale(' + scale + ')';
+    tr.slot.style.opacity = op;
+    tr.slot.style.zIndex = 50 - Math.round(ad * 10);
+  });
+  var active = Math.round(pos);
+  if(active !== lastActive){
+    lastActive = active;
+    trees.forEach(function(tr, ti){ tr.tab.classList.toggle('active', ti === active); });
+    var t = trees[active].tab;
+    if(t.scrollIntoView && tabsBox.scrollWidth > tabsBox.clientWidth){
+      tabsBox.scrollTo({left: t.offsetLeft - tabsBox.clientWidth / 2 + t.clientWidth / 2, behavior: 'smooth'});
+    }
+  }
+}
+
+/* drag to switch trees */
+function clampPos(v){ return Math.max(-0.25, Math.min(trees.length - 0.75, v)); }
+rail.addEventListener('pointerdown', function(e){
+  dragging = true; dragMoved = false;
+  dragStartX = e.clientX; dragStartPos = pos;
+  rail.classList.add('dragging');
+});
+rail.addEventListener('pointermove', function(e){
+  if(!dragging) return;
+  var dx = e.clientX - dragStartX;
+  if(Math.abs(dx) > 6) dragMoved = true;
+  if(dragMoved){
+    pos = clampPos(dragStartPos - dx / SLOT_GAP);
+    target = pos;
+  }
+});
+function endDrag(){
+  if(!dragging) return;
+  dragging = false;
+  rail.classList.remove('dragging');
+  target = Math.max(0, Math.min(trees.length - 1, Math.round(pos)));
+}
+rail.addEventListener('pointerup', endDrag);
+rail.addEventListener('pointercancel', endDrag);
+rail.addEventListener('pointerleave', endDrag);
+rail.addEventListener('click', function(e){
+  if(dragMoved){ e.preventDefault(); e.stopPropagation(); dragMoved = false; return; }
+  var slotEl = e.target.closest('.tree-slot');
+  if(slotEl){
+    var idx = trees.findIndex(function(t){ return t.slot === slotEl; });
+    if(idx !== -1 && idx !== Math.round(pos)){ e.preventDefault(); target = idx; }
+  }
+}, true);
+
+/* trunk animation, only for the trees near the middle */
+var trunkTime = 0;
+function sizeTrunks(){
+  var h = stage.clientHeight || window.innerHeight;
+  var dpr = isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5);
+  trees.forEach(function(tr){
+    tr.canvas.width = 160 * dpr; tr.canvas.height = h * dpr;
+    tr.canvas.style.width = '160px'; tr.canvas.style.height = h + 'px';
+    tr.canvas.getContext('2d').setTransform(dpr, 0, 0, dpr, 0, 0);
+  });
+}
+sizeTrunks();
+var strandData = [];
+for(var s = 0; s < 3; s++){ strandData.push({freq: 0.006 + Math.random()*0.007, speed: 0.5 + Math.random()*0.5, amp: 14 + Math.random()*22, phase: Math.random()*6.28}); }
+function drawTrunk(tr, t){
+  var ctx = tr.canvas.getContext('2d');
+  var dpr = isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5);
+  var w = tr.canvas.width / dpr, h = tr.canvas.height / dpr;
+  ctx.clearRect(0, 0, w, h);
+  ctx.globalCompositeOperation = 'lighter';
+  ctx.strokeStyle = tr.dm.c;
+  ctx.lineWidth = 1.3;
+  ctx.globalAlpha = 0.4;
+  var step = isMobile ? 16 : 8;
+  strandData.forEach(function(sd){
+    ctx.beginPath();
+    for(var y = 0; y <= h; y += step){
+      var x = w/2 + Math.sin(y*sd.freq + t*sd.speed + sd.phase) * sd.amp;
+      if(y === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  });
+  var py = ((t * 0.08) % 1) * h;
+  var px = w/2 + Math.sin(py*0.008 + t*0.6) * 16;
+  var g = ctx.createRadialGradient(px, py, 0, px, py, 22);
+  g.addColorStop(0, tr.dm.c); g.addColorStop(1, 'transparent');
+  ctx.globalAlpha = 0.8; ctx.fillStyle = g;
+  ctx.beginPath(); ctx.arc(px, py, 22, 0, 6.28); ctx.fill();
+  ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+}
+
+var stageVisible = false;
+new IntersectionObserver(function(es){ es.forEach(function(e){ stageVisible = e.isIntersecting; }); }, {threshold:0}).observe(stageWrap);
+var lastTrunk = 0, lastPos = -99;
+function treeLoop(ts){
+  requestAnimationFrame(treeLoop);
+  if(document.hidden || !stageVisible) return;
+  if(!dragging){ pos += (target - pos) * 0.14; if(Math.abs(target - pos) < 0.001) pos = target; }
+  if(pos !== lastPos){ lastPos = pos; placeSlots(); updateCards(); }
+  if(ts - lastTrunk > (isMobile ? 50 : 33)){
+    lastTrunk = ts;
+    trees.forEach(function(tr, ti){ if(Math.abs(ti - pos) < 1.2) drawTrunk(tr, ts / 1000); });
+  }
+}
+placeSlots();
+updateProgress();
+requestAnimationFrame(treeLoop);
+window.addEventListener('resize', function(){
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function(){ setSizes(); sizeTrunks(); lastPos = -99; updateProgress(); }, 150);
+});
+
+/* ================= THREE.JS BACKGROUND ================= */
+if(window.THREE){
+var bgCanvas = document.getElementById('bg-canvas');
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 0.1, 100);
+camera.position.set(0, 0, 7);
+var renderer = new THREE.WebGLRenderer({canvas:bgCanvas, antialias:false, alpha:true, powerPreference:'high-performance'});
+renderer.setPixelRatio(isMobile ? 1 : Math.min(devicePixelRatio, 1.5));
+renderer.setSize(innerWidth, innerHeight);
+window.addEventListener('resize', function(){
+  renderer.setSize(innerWidth, innerHeight);
+  camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+});
+var PCOUNT = isLowEnd ? 220 : (isMobile ? 380 : Math.min(700, Math.floor(innerWidth*innerHeight/1900)));
+var positions = new Float32Array(PCOUNT*3);
+var colors = new Float32Array(PCOUNT*3);
+var speeds = new Float32Array(PCOUNT);
+var palette = [new THREE.Color(0x22e0f5), new THREE.Color(0xff2fb0), new THREE.Color(0x34e6a8), new THREE.Color(0x7c3aed)];
+for(var i = 0; i < PCOUNT; i++){
+  var r = 6 + Math.random()*11;
+  var theta = Math.random()*Math.PI*2;
+  var phi = Math.acos(Math.random()*2 - 1);
+  positions[i*3] = r*Math.sin(phi)*Math.cos(theta);
+  positions[i*3+1] = r*Math.sin(phi)*Math.sin(theta)*0.6;
+  positions[i*3+2] = r*Math.cos(phi)*0.6 - 3;
+  var c = palette[Math.floor(Math.random()*palette.length)];
+  colors[i*3] = c.r; colors[i*3+1] = c.g; colors[i*3+2] = c.b;
+  speeds[i] = 0.2 + Math.random()*0.6;
+}
+var pGeo = new THREE.BufferGeometry();
+pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+pGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+var pMat = new THREE.PointsMaterial({size:0.05, vertexColors:true, transparent:true, opacity:.85, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true});
+var points = new THREE.Points(pGeo, pMat);
+scene.add(points);
+var mouse = new THREE.Vector2(0, 0), targetMouse = new THREE.Vector2(0, 0);
+window.addEventListener('mousemove', function(e){
+  targetMouse.x = (e.clientX/innerWidth)*2 - 1;
+  targetMouse.y = -(e.clientY/innerHeight)*2 + 1;
+}, {passive:true});
+var clock = new THREE.Clock();
+var BG_FPS = isMobile ? 24 : 45;
+var lastBg = 0;
+function animateBg(ts){
+  requestAnimationFrame(animateBg);
   if(document.hidden) return;
-  if(ts-lastBgFrame < 1000/BG_FPS) return;
-  lastBgFrame=ts;
-
-  const t=clock.getElapsedTime();
-  mouse.x += (targetMouse.x-mouse.x)*0.05;
-  mouse.y += (targetMouse.y-mouse.y)*0.05;
+  if(ts - lastBg < 1000/BG_FPS) return;
+  lastBg = ts;
+  var t = clock.getElapsedTime();
+  mouse.x += (targetMouse.x - mouse.x)*0.05;
+  mouse.y += (targetMouse.y - mouse.y)*0.05;
   camera.position.x += (mouse.x*0.6 - camera.position.x)*0.03;
   camera.position.y += (mouse.y*0.4 - camera.position.y)*0.03;
-  camera.lookAt(0,0,0);
-
-  if(!skipMouseInteraction){
-    raycaster.setFromCamera(mouse, camera);
-    raycaster.ray.intersectPlane(mousePlane, mouseWorld);
+  camera.lookAt(0, 0, 0);
+  var arr = pGeo.attributes.position.array;
+  for(var i = 0; i < PCOUNT; i++){
+    arr[i*3] += Math.sin(t*0.15*speeds[i] + i)*0.003;
+    arr[i*3+1] += Math.cos(t*0.13*speeds[i] + i)*0.003;
   }
-
-  const posAttr=pGeo.attributes.position;
-  for(let i=0;i<PCOUNT;i++){
-    let x=posAttr.array[i*3], y=posAttr.array[i*3+1], z=posAttr.array[i*3+2];
-    x += Math.sin(t*0.15*speeds[i]+i)*0.003;
-    y += Math.cos(t*0.13*speeds[i]+i)*0.003;
-    if(!skipMouseInteraction && mouseWorld){
-      const dx=x-mouseWorld.x, dy=y-mouseWorld.y, dz=z-mouseWorld.z;
-      const d2=dx*dx+dy*dy+dz*dz;
-      if(d2<4.84){ const d=Math.sqrt(d2); const f=(2.2-d)/2.2*0.03; x+=(dx/d)*f; y+=(dy/d)*f; }
-    }
-    posAttr.array[i*3]=x; posAttr.array[i*3+1]=y; posAttr.array[i*3+2]=z;
-  }
-  posAttr.needsUpdate=true;
-  points.rotation.y=t*0.015;
-
+  pGeo.attributes.position.needsUpdate = true;
+  points.rotation.y = t*0.015;
   renderer.render(scene, camera);
 }
-requestAnimationFrame(animate);
+requestAnimationFrame(animateBg);
+}
 
-/* ================= CERTIFICATES: floating horizontal orbit ================= */
-const certificates=[
+/* ================= CERTIFICATES ================= */
+var certificates = [
   { img:"cert-tata-genai-data-analytics.jpg", title:"GenAI Powered Data Analytics", issuer:"Tata · via Forage", date:"Completed July 2026" },
   { img:"cert-commonwealth-bank-data-science.jpg", title:"Introduction to Data Science", issuer:"Commonwealth Bank · via Forage", date:"Completed Aug 2026" },
   { img:"cert-quantium-data-analytics.jpg", title:"Data Analytics Job Simulation", issuer:"Quantium · via Forage", date:"Completed July 2026" },
   { img:"cert-jpmorgan-quant-research.jpg", title:"Quantitative Research", issuer:"JPMorgan Chase & Co. · via Forage", date:"Completed July 2026" },
   { img:"cert-oneroadmap-data-analyst.jpg", title:"Data Analyst Job Simulation", issuer:"OneRoadmap", date:"Certified July 2026" },
   { img:"cert-deloitte-data-analytics.jpg", title:"Data Analytics Job Simulation", issuer:"Deloitte Australia · via Forage", date:"Completed Oct 2025" },
-  { img:"cert-mastercard-cybersecurity.jpg", title:"Cybersecurity Job Simulation", issuer:"Mastercard · via Forage", date:"Completed Oct 2025" },
+  { img:"cert-mastercard-cybersecurity.jpg", title:"Cybersecurity Job Simulation", issuer:"Mastercard · via Forage", date:"Completed Oct 2025" }
 ];
+var certLightbox = document.getElementById('certLightbox');
+function openCert(c){
+  document.getElementById('certLightboxImg').src = c.img;
+  document.getElementById('certLightboxTitle').textContent = c.title;
+  document.getElementById('certLightboxMeta').textContent = c.issuer + ' · ' + c.date;
+  certLightbox.classList.add('open');
+}
+function closeCert(){ certLightbox.classList.remove('open'); }
+document.getElementById('certLightboxClose').addEventListener('click', closeCert);
+certLightbox.addEventListener('click', function(e){ if(e.target === certLightbox) closeCert(); });
+window.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeCert(); });
 
-(function initCertOrbit(){
-  const viewport=document.getElementById('certViewport');
-  const track=document.getElementById('certTrack');
-  const certSection=document.getElementById('certificates');
-  if(!viewport||!track) return;
-
-  const SETS=3; // render 3 copies back-to-back so the loop is seamless in both directions
-  track.innerHTML='';
-  for(let s=0;s<SETS;s++){
-    certificates.forEach((c,i)=>{
-      const slot=document.createElement('div');
-      slot.className='cert-slot';
-      slot.innerHTML=`
-        <div class="cert-float" style="animation-delay:${(i%certificates.length)*-0.7}s">
-          <img src="${c.img}" alt="${c.title} certificate" loading="lazy" onerror="this.style.display='none';this.closest('.cert-float').classList.add('img-fallback');"/>
-          <div class="cert-float-body">
-            <h4>${c.title}</h4>
-            <div class="issuer">${c.issuer}</div>
-            <div class="date">${c.date}</div>
-          </div>
-        </div>`;
-      slot.addEventListener('click', (e)=>{
-        if(Math.abs(dragTotalMove)>6) return; // was a drag, not a tap
-        openCertLightbox(c);
-      });
+(function(){
+  var viewport = document.getElementById('certViewport');
+  var track = document.getElementById('certTrack');
+  var certSection = document.getElementById('certificates');
+  var certDrag = 0;
+  for(var s = 0; s < 3; s++){
+    certificates.forEach(function(c, i){
+      var slot = document.createElement('div');
+      slot.className = 'cert-slot';
+      slot.innerHTML = '<div class="cert-float" style="animation-delay:' + (i * -0.7) + 's"><img src="' + c.img + '" alt="' + c.title + ' certificate" loading="lazy" onerror="this.style.display=\'none\';"/><div class="cert-float-body"><h4>' + c.title + '</h4><div class="issuer">' + c.issuer + '</div><div class="date">' + c.date + '</div></div></div>';
+      slot.addEventListener('click', function(){ if(Math.abs(certDrag) > 6) return; openCert(c); });
       track.appendChild(slot);
     });
   }
   bindCursorTargets();
-
-  let slots=[], slotWidth=0, setWidth=0;
+  var slots = [], slotWidth = 0, setWidth = 0;
   function measure(){
-    slots=Array.from(track.querySelectorAll('.cert-slot'));
-    if(!slots.length) return;
-    slotWidth=slots[0].getBoundingClientRect().width + parseFloat(getComputedStyle(slots[0]).marginLeft)*2;
-    setWidth=slotWidth*certificates.length;
+    slots = Array.prototype.slice.call(track.querySelectorAll('.cert-slot'));
+    slotWidth = slots[0].getBoundingClientRect().width + parseFloat(getComputedStyle(slots[0]).marginLeft) * 2;
+    setWidth = slotWidth * certificates.length;
   }
   measure();
-
-  let posX=-setWidth; // start centered on the middle set
-  let dragging=false, dragStartX=0, dragStartPos=0, dragTotalMove=0;
-  let lastInteraction=0;
-  const AUTO_SPEED = isMobile? 14 : 18; // px per second, drifting left → right
-  let visible=false;
-
-  const secObs=new IntersectionObserver((entries)=>{ entries.forEach(en=>{ visible=en.isIntersecting; if(visible) requestAnimationFrame(loop); }); },{threshold:.1});
-  secObs.observe(certSection);
-
-  function applyTransforms(){
-    track.style.transform=`translate3d(${posX}px,0,0)`;
-    const vw=viewport.getBoundingClientRect().width;
-    const center=vw/2;
-    slots.forEach(slot=>{
-      const left=slot.offsetLeft + posX + slotWidth/2;
-      const delta=left-center;
-      const norm=Math.max(-1,Math.min(1, delta/(vw*0.55)));
-      const scale=1-Math.abs(norm)*0.28;
-      const rot=norm*-22;
-      const arc=Math.abs(norm)*26;
-      const opacity=1-Math.abs(norm)*0.55;
-      slot.style.transform=`translateY(${arc}px) rotateY(${rot}deg) scale(${scale})`;
-      slot.style.opacity=Math.max(opacity,0.15);
-      slot.style.zIndex=String(100-Math.round(Math.abs(norm)*50));
+  var posX = -setWidth;
+  var down = false, startX = 0, startPos = 0, lastTouch = 0, visible = false;
+  var SPEED = isMobile ? 14 : 18;
+  new IntersectionObserver(function(es){ es.forEach(function(en){ visible = en.isIntersecting; if(visible) requestAnimationFrame(loop); }); }, {threshold:.1}).observe(certSection);
+  function apply(){
+    track.style.transform = 'translate3d(' + posX + 'px,0,0)';
+    var vw = viewport.getBoundingClientRect().width;
+    slots.forEach(function(slot){
+      var left = slot.offsetLeft + posX + slotWidth/2;
+      var norm = Math.max(-1, Math.min(1, (left - vw/2) / (vw*0.55)));
+      slot.style.transform = 'translateY(' + (Math.abs(norm)*26) + 'px) rotateY(' + (norm*-22) + 'deg) scale(' + (1 - Math.abs(norm)*0.28) + ')';
+      slot.style.opacity = Math.max(1 - Math.abs(norm)*0.55, 0.15);
+      slot.style.zIndex = 100 - Math.round(Math.abs(norm)*50);
     });
   }
-
-  function wrap(){
-    if(posX> -0.001) posX-=setWidth;
-    if(posX< -setWidth*2) posX+=setWidth;
-  }
-
-  let lastT=performance.now();
+  var lastT = performance.now();
   function loop(now){
     if(!visible) return;
-    const dt=Math.min((now-lastT)/1000, 0.05); lastT=now;
-    if(!dragging && (now-lastInteraction)>150 && !prefersReducedMotion){
-      posX += AUTO_SPEED*dt;
-    }
-    wrap();
-    applyTransforms();
+    var dt = Math.min((now - lastT)/1000, 0.05); lastT = now;
+    if(!down && (now - lastTouch) > 150 && !reduceMotion) posX += SPEED*dt;
+    if(posX > -0.001) posX -= setWidth;
+    if(posX < -setWidth*2) posX += setWidth;
+    apply();
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
-
-  function pointerX(e){ return e.touches? e.touches[0].clientX : e.clientX; }
-  viewport.addEventListener('pointerdown',(e)=>{
-    dragging=true; dragTotalMove=0;
-    dragStartX=pointerX(e); dragStartPos=posX;
-    viewport.classList.add('dragging');
-    lastInteraction=performance.now();
-    viewport.setPointerCapture && e.pointerId!=null && viewport.setPointerCapture(e.pointerId);
+  viewport.addEventListener('pointerdown', function(e){
+    down = true; certDrag = 0; startX = e.clientX; startPos = posX;
+    viewport.classList.add('dragging'); lastTouch = performance.now();
+    if(viewport.setPointerCapture) viewport.setPointerCapture(e.pointerId);
   });
-  viewport.addEventListener('pointermove',(e)=>{
-    if(!dragging) return;
-    const dx=pointerX(e)-dragStartX;
-    dragTotalMove=dx;
-    posX=dragStartPos+dx;
-    lastInteraction=performance.now();
+  viewport.addEventListener('pointermove', function(e){
+    if(!down) return;
+    certDrag = e.clientX - startX; posX = startPos + certDrag; lastTouch = performance.now();
   });
-  function endDrag(){
-    dragging=false;
-    viewport.classList.remove('dragging');
-    lastInteraction=performance.now();
-  }
-  viewport.addEventListener('pointerup',endDrag);
-  viewport.addEventListener('pointercancel',endDrag);
-  viewport.addEventListener('pointerleave',()=>{ if(dragging) endDrag(); });
-
-  window.addEventListener('resize', ()=>{ const wasSet=setWidth; measure(); posX = posX/wasSet*setWidth || -setWidth; });
+  function up(){ down = false; viewport.classList.remove('dragging'); lastTouch = performance.now(); }
+  viewport.addEventListener('pointerup', up);
+  viewport.addEventListener('pointercancel', up);
+  window.addEventListener('resize', function(){ var old = setWidth; measure(); posX = posX/old*setWidth || -setWidth; });
 })();
 
-/* ---------- certificate lightbox ---------- */
-const certLightbox=document.getElementById('certLightbox');
-const certLightboxImg=document.getElementById('certLightboxImg');
-const certLightboxTitle=document.getElementById('certLightboxTitle');
-const certLightboxMeta=document.getElementById('certLightboxMeta');
-function openCertLightbox(c){
-  certLightboxImg.src=c.img;
-  certLightboxTitle.textContent=c.title;
-  certLightboxMeta.textContent=`${c.issuer} · ${c.date}`;
-  certLightbox.classList.add('open');
-}
-function closeCertLightbox(){ certLightbox.classList.remove('open'); }
-document.getElementById('certLightboxClose').addEventListener('click', closeCertLightbox);
-certLightbox.addEventListener('click', (e)=>{ if(e.target===certLightbox) closeCertLightbox(); });
-window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeCertLightbox(); });
-
-/* ================= CERTIFICATES: rotating multicolor particle sphere ================= */
-(function initCertSphere(){
-  const canvas=document.getElementById('certSphereCanvas');
-  if(!canvas) return;
-  const certSection=document.getElementById('certificates');
-  const sScene=new THREE.Scene();
-  const sCamera=new THREE.PerspectiveCamera(45, 1, 0.1, 20);
-  sCamera.position.set(0,0,6.2);
-  const sRenderer=new THREE.WebGLRenderer({canvas, antialias:false, alpha:true});
-  const sDPR=isMobile?1:Math.min(devicePixelRatio,1.5);
-  sRenderer.setPixelRatio(sDPR);
-
+/* particle sphere behind the certificates */
+if(window.THREE){
+(function(){
+  var canvas = document.getElementById('certSphereCanvas');
+  var certSection = document.getElementById('certificates');
+  var sScene = new THREE.Scene();
+  var sCamera = new THREE.PerspectiveCamera(45, 1, 0.1, 20);
+  sCamera.position.set(0, 0, 6.2);
+  var sRenderer = new THREE.WebGLRenderer({canvas:canvas, antialias:false, alpha:true});
+  sRenderer.setPixelRatio(isMobile ? 1 : Math.min(devicePixelRatio, 1.5));
   function sizeSphere(){
-    const box=canvas.getBoundingClientRect();
-    const size=Math.max(box.width,1);
-    sRenderer.setSize(size,size,false);
-    sCamera.aspect=1; sCamera.updateProjectionMatrix();
+    var size = Math.max(canvas.getBoundingClientRect().width, 1);
+    sRenderer.setSize(size, size, false);
   }
-
-  const SCOUNT = isLowEnd ? 260 : (isMobile ? 380 : 900);
-  const sPositions=new Float32Array(SCOUNT*3);
-  const sColors=new Float32Array(SCOUNT*3);
-  const sPalette=[new THREE.Color(0x7c3aed), new THREE.Color(0x22e0f5), new THREE.Color(0xff2fb0), new THREE.Color(0xb47bff)];
-  const R=2.15;
-  for(let i=0;i<SCOUNT;i++){
-    const theta=Math.random()*Math.PI*2;
-    const phi=Math.acos((Math.random()*2)-1);
-    // slight swirl distortion so it doesn't look like a perfect uniform ball
-    const wobble=1 + Math.sin(phi*5+theta*3)*0.06;
-    const r=R*wobble;
-    sPositions[i*3]=r*Math.sin(phi)*Math.cos(theta);
-    sPositions[i*3+1]=r*Math.sin(phi)*Math.sin(theta);
-    sPositions[i*3+2]=r*Math.cos(phi);
-    const c=sPalette[Math.floor(Math.random()*sPalette.length)];
-    sColors[i*3]=c.r; sColors[i*3+1]=c.g; sColors[i*3+2]=c.b;
+  var SCOUNT = isLowEnd ? 260 : (isMobile ? 380 : 900);
+  var sPos = new Float32Array(SCOUNT*3), sCol = new Float32Array(SCOUNT*3);
+  var sPalette = [new THREE.Color(0x7c3aed), new THREE.Color(0x22e0f5), new THREE.Color(0xff2fb0), new THREE.Color(0xb47bff)];
+  var R = 2.15;
+  for(var i = 0; i < SCOUNT; i++){
+    var theta = Math.random()*Math.PI*2;
+    var phi = Math.acos(Math.random()*2 - 1);
+    var rr = R * (1 + Math.sin(phi*5 + theta*3)*0.06);
+    sPos[i*3] = rr*Math.sin(phi)*Math.cos(theta);
+    sPos[i*3+1] = rr*Math.sin(phi)*Math.sin(theta);
+    sPos[i*3+2] = rr*Math.cos(phi);
+    var c = sPalette[Math.floor(Math.random()*sPalette.length)];
+    sCol[i*3] = c.r; sCol[i*3+1] = c.g; sCol[i*3+2] = c.b;
   }
-  const sGeo=new THREE.BufferGeometry();
-  sGeo.setAttribute('position', new THREE.BufferAttribute(sPositions,3));
-  sGeo.setAttribute('color', new THREE.BufferAttribute(sColors,3));
-  const sMat=new THREE.PointsMaterial({size:0.032, vertexColors:true, transparent:true, opacity:.9, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true});
-  const sPoints=new THREE.Points(sGeo, sMat);
+  var sGeo = new THREE.BufferGeometry();
+  sGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
+  sGeo.setAttribute('color', new THREE.BufferAttribute(sCol, 3));
+  var sPoints = new THREE.Points(sGeo, new THREE.PointsMaterial({size:0.032, vertexColors:true, transparent:true, opacity:.9, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true}));
   sScene.add(sPoints);
-
-  // a couple of bright swept arcs, echoing the reference image's glowing streaks
-  const arcCount = isMobile ? 2 : 3;
-  for(let a=0;a<arcCount;a++){
-    const arcPts=[];
-    const tilt=Math.random()*Math.PI;
-    const axisTilt2=Math.random()*Math.PI*2;
-    for(let i=0;i<=64;i++){
-      const ang=(i/64)*Math.PI*2;
-      const x=Math.cos(ang)*R*1.02, y=Math.sin(ang)*R*1.02, z=0;
-      const v=new THREE.Vector3(x,y,z);
+  var arcs = [];
+  for(var a = 0; a < (isMobile ? 2 : 3); a++){
+    var pts = [];
+    var tilt = Math.random()*Math.PI, tilt2 = Math.random()*Math.PI*2;
+    for(var k = 0; k <= 64; k++){
+      var ang = (k/64)*Math.PI*2;
+      var v = new THREE.Vector3(Math.cos(ang)*R*1.02, Math.sin(ang)*R*1.02, 0);
       v.applyAxisAngle(new THREE.Vector3(1,0,0), tilt);
-      v.applyAxisAngle(new THREE.Vector3(0,1,0), axisTilt2);
-      arcPts.push(v);
+      v.applyAxisAngle(new THREE.Vector3(0,1,0), tilt2);
+      pts.push(v);
     }
-    const arcGeo=new THREE.BufferGeometry().setFromPoints(arcPts);
-    const arcColor=sPalette[a%sPalette.length];
-    const arcMat=new THREE.LineBasicMaterial({color:arcColor, transparent:true, opacity:.35, blending:THREE.AdditiveBlending});
-    sScene.add(new THREE.Line(arcGeo, arcMat));
+    var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({color:sPalette[a % 4], transparent:true, opacity:.35, blending:THREE.AdditiveBlending}));
+    sScene.add(line); arcs.push(line);
   }
-
-  let sVisible=false;
-  const sObs=new IntersectionObserver((entries)=>{ entries.forEach(en=>{ sVisible=en.isIntersecting; if(sVisible){ sizeSphere(); requestAnimationFrame(sLoop);} }); },{threshold:.1});
-  sObs.observe(certSection);
-  window.addEventListener('resize', ()=>{ clearTimeout(resizeTimer); resizeTimer=setTimeout(sizeSphere,150); });
+  var sVisible = false;
+  new IntersectionObserver(function(es){ es.forEach(function(en){ sVisible = en.isIntersecting; if(sVisible){ sizeSphere(); requestAnimationFrame(sLoop); } }); }, {threshold:.1}).observe(certSection);
+  window.addEventListener('resize', function(){ clearTimeout(resizeTimer); resizeTimer = setTimeout(sizeSphere, 150); });
   sizeSphere();
-
-  const sClock=new THREE.Clock();
-  const S_FPS = isMobile ? 20 : 30;
-  let lastSFrame=0;
+  var sClock = new THREE.Clock(), lastS = 0, S_FPS = isMobile ? 20 : 30;
   function sLoop(ts){
     if(!sVisible || document.hidden) return;
     requestAnimationFrame(sLoop);
-    if(ts-lastSFrame < 1000/S_FPS) return;
-    lastSFrame=ts;
-    const t=sClock.getElapsedTime();
-    sPoints.rotation.y=t*0.16;
-    sPoints.rotation.x=Math.sin(t*0.08)*0.18;
-    sScene.children.forEach(ch=>{ if(ch.isLine){ ch.rotation.y=t*0.1; ch.rotation.z=t*0.05; } });
+    if(ts - lastS < 1000/S_FPS) return;
+    lastS = ts;
+    var t = sClock.getElapsedTime();
+    sPoints.rotation.y = t*0.16;
+    sPoints.rotation.x = Math.sin(t*0.08)*0.18;
+    arcs.forEach(function(l){ l.rotation.y = t*0.1; l.rotation.z = t*0.05; });
     sRenderer.render(sScene, sCamera);
   }
-  requestAnimationFrame(sLoop);
 })();
+}
 
-} // end initSite
+}
 </script>
 </body>
 </html>
